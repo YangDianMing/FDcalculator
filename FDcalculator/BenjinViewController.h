@@ -1,5 +1,5 @@
 //
-//  BlueViewController.h
+//  RedViewController.h
 //  YCSlideViewDome
 //
 //  Created by 王禹丞 on 16/1/29.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BlueViewController : UIViewController
+@interface BenjinViewController : UIViewController
 
 @end

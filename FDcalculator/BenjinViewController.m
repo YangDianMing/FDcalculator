@@ -1,25 +1,25 @@
 //
-//  BlueViewController.m
+//  ViewController.m
 //  YCSlideViewDome
 //
 //  Created by 王禹丞 on 16/1/29.
 //  Copyright © 2016年 wyc. All rights reserved.
 //
 
-#import "BlueViewController.h"
+#import "BenjinViewController.h"
 
-@interface BlueViewController ()
+@interface BenjinViewController ()
 
 @end
 
-@implementation BlueViewController
+@implementation BenjinViewController
 
 - (void)viewDidLoad {
-
+    
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor blueColor];
-
+    //self.view.backgroundColor = [UIColor redColor];
+    
 }
 
 - (void)didReceiveMemoryWarning {

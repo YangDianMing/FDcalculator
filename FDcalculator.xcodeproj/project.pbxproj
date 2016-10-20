@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3E31A36C1DB525DC00803CAE /* YCSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E31A36B1DB525DC00803CAE /* YCSlideView.m */; };
-		3E31A3711DB5264F00803CAE /* BlueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E31A36E1DB5264F00803CAE /* BlueViewController.m */; };
-		3E31A3721DB5264F00803CAE /* RedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E31A3701DB5264F00803CAE /* RedViewController.m */; };
+		3E31A3711DB5264F00803CAE /* BenxiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E31A36E1DB5264F00803CAE /* BenxiViewController.m */; };
+		3E31A3721DB5264F00803CAE /* BenjinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E31A3701DB5264F00803CAE /* BenjinViewController.m */; };
 		3EAD956E1DA89EC700166685 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD956D1DA89EC700166685 /* main.m */; };
 		3EAD95711DA89EC700166685 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD95701DA89EC700166685 /* AppDelegate.m */; };
 		3EAD95741DA89EC700166685 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD95731DA89EC700166685 /* ViewController.m */; };
@@ -41,10 +41,10 @@
 /* Begin PBXFileReference section */
 		3E31A36A1DB525DC00803CAE /* YCSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCSlideView.h; sourceTree = "<group>"; };
 		3E31A36B1DB525DC00803CAE /* YCSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCSlideView.m; sourceTree = "<group>"; };
-		3E31A36D1DB5264F00803CAE /* BlueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueViewController.h; sourceTree = "<group>"; };
-		3E31A36E1DB5264F00803CAE /* BlueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueViewController.m; sourceTree = "<group>"; };
-		3E31A36F1DB5264F00803CAE /* RedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedViewController.h; sourceTree = "<group>"; };
-		3E31A3701DB5264F00803CAE /* RedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedViewController.m; sourceTree = "<group>"; };
+		3E31A36D1DB5264F00803CAE /* BenxiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BenxiViewController.h; sourceTree = "<group>"; };
+		3E31A36E1DB5264F00803CAE /* BenxiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BenxiViewController.m; sourceTree = "<group>"; };
+		3E31A36F1DB5264F00803CAE /* BenjinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BenjinViewController.h; sourceTree = "<group>"; };
+		3E31A3701DB5264F00803CAE /* BenjinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BenjinViewController.m; sourceTree = "<group>"; };
 		3EAD95691DA89EC700166685 /* FDcalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FDcalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAD956D1DA89EC700166685 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3EAD956F1DA89EC700166685 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -117,10 +117,10 @@
 				3EAD95701DA89EC700166685 /* AppDelegate.m */,
 				3EAD95721DA89EC700166685 /* ViewController.h */,
 				3EAD95731DA89EC700166685 /* ViewController.m */,
-				3E31A36D1DB5264F00803CAE /* BlueViewController.h */,
-				3E31A36E1DB5264F00803CAE /* BlueViewController.m */,
-				3E31A36F1DB5264F00803CAE /* RedViewController.h */,
-				3E31A3701DB5264F00803CAE /* RedViewController.m */,
+				3E31A36D1DB5264F00803CAE /* BenxiViewController.h */,
+				3E31A36E1DB5264F00803CAE /* BenxiViewController.m */,
+				3E31A36F1DB5264F00803CAE /* BenjinViewController.h */,
+				3E31A3701DB5264F00803CAE /* BenjinViewController.m */,
 				3EAD95751DA89EC700166685 /* Main.storyboard */,
 				3EAD957B1DA89EC700166685 /* Assets.xcassets */,
 				3EAD957D1DA89EC700166685 /* LaunchScreen.storyboard */,
@@ -300,9 +300,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E31A36C1DB525DC00803CAE /* YCSlideView.m in Sources */,
-				3E31A3721DB5264F00803CAE /* RedViewController.m in Sources */,
+				3E31A3721DB5264F00803CAE /* BenjinViewController.m in Sources */,
 				3EAD95741DA89EC700166685 /* ViewController.m in Sources */,
-				3E31A3711DB5264F00803CAE /* BlueViewController.m in Sources */,
+				3E31A3711DB5264F00803CAE /* BenxiViewController.m in Sources */,
 				3EAD957A1DA89EC700166685 /* FDcalculator.xcdatamodeld in Sources */,
 				3EAD95711DA89EC700166685 /* AppDelegate.m in Sources */,
 				3EAD956E1DA89EC700166685 /* main.m in Sources */,

@@ -1,25 +1,25 @@
 //
-//  RedViewController.m
+//  BenxiViewController.m
 //  YCSlideViewDome
 //
 //  Created by 王禹丞 on 16/1/29.
 //  Copyright © 2016年 wyc. All rights reserved.
 //
 
-#import "RedViewController.h"
+#import "BenxiViewController.h"
 
-@interface RedViewController ()
+@interface BenxiViewController ()
 
 @end
 
-@implementation RedViewController
+@implementation BenxiViewController
 
 - (void)viewDidLoad {
-    
+
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor redColor];
-    
+    //self.view.backgroundColor = [UIColor blueColor];
+
 }
 
 - (void)didReceiveMemoryWarning {
