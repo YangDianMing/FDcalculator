@@ -10,6 +10,9 @@
 		3E31A36C1DB525DC00803CAE /* YCSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E31A36B1DB525DC00803CAE /* YCSlideView.m */; };
 		3E31A3711DB5264F00803CAE /* BenxiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E31A36E1DB5264F00803CAE /* BenxiViewController.m */; };
 		3E31A3721DB5264F00803CAE /* BenjinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E31A3701DB5264F00803CAE /* BenjinViewController.m */; };
+		3E7D52A01DB897A000F24173 /* SJDataTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7D529B1DB897A000F24173 /* SJDataTableView.m */; };
+		3E7D52A11DB897A000F24173 /* SJDataFixItemTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7D529D1DB897A000F24173 /* SJDataFixItemTableView.m */; };
+		3E7D52A21DB897A000F24173 /* SJDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7D529F1DB897A000F24173 /* SJDataTableViewCell.m */; };
 		3EAD956E1DA89EC700166685 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD956D1DA89EC700166685 /* main.m */; };
 		3EAD95711DA89EC700166685 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD95701DA89EC700166685 /* AppDelegate.m */; };
 		3EAD95741DA89EC700166685 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD95731DA89EC700166685 /* ViewController.m */; };
@@ -45,6 +48,12 @@
 		3E31A36E1DB5264F00803CAE /* BenxiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BenxiViewController.m; sourceTree = "<group>"; };
 		3E31A36F1DB5264F00803CAE /* BenjinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BenjinViewController.h; sourceTree = "<group>"; };
 		3E31A3701DB5264F00803CAE /* BenjinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BenjinViewController.m; sourceTree = "<group>"; };
+		3E7D529A1DB897A000F24173 /* SJDataTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJDataTableView.h; sourceTree = "<group>"; };
+		3E7D529B1DB897A000F24173 /* SJDataTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJDataTableView.m; sourceTree = "<group>"; };
+		3E7D529C1DB897A000F24173 /* SJDataFixItemTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJDataFixItemTableView.h; sourceTree = "<group>"; };
+		3E7D529D1DB897A000F24173 /* SJDataFixItemTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJDataFixItemTableView.m; sourceTree = "<group>"; };
+		3E7D529E1DB897A000F24173 /* SJDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJDataTableViewCell.h; sourceTree = "<group>"; };
+		3E7D529F1DB897A000F24173 /* SJDataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJDataTableViewCell.m; sourceTree = "<group>"; };
 		3EAD95691DA89EC700166685 /* FDcalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FDcalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAD956D1DA89EC700166685 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3EAD956F1DA89EC700166685 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -89,6 +98,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E7D52A31DB897BA00F24173 /* SJDataTableView */ = {
+			isa = PBXGroup;
+			children = (
+				3E7D529A1DB897A000F24173 /* SJDataTableView.h */,
+				3E7D529B1DB897A000F24173 /* SJDataTableView.m */,
+				3E7D529C1DB897A000F24173 /* SJDataFixItemTableView.h */,
+				3E7D529D1DB897A000F24173 /* SJDataFixItemTableView.m */,
+				3E7D529E1DB897A000F24173 /* SJDataTableViewCell.h */,
+				3E7D529F1DB897A000F24173 /* SJDataTableViewCell.m */,
+			);
+			name = SJDataTableView;
+			sourceTree = "<group>";
+		};
 		3EAD95601DA89EC700166685 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +134,7 @@
 		3EAD956B1DA89EC700166685 /* FDcalculator */ = {
 			isa = PBXGroup;
 			children = (
+				3E7D52A31DB897BA00F24173 /* SJDataTableView */,
 				3EC9B36C1DAF76DA0026602E /* YCSlideView */,
 				3EAD956F1DA89EC700166685 /* AppDelegate.h */,
 				3EAD95701DA89EC700166685 /* AppDelegate.m */,
@@ -233,6 +256,7 @@
 				TargetAttributes = {
 					3EAD95681DA89EC700166685 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = APR6ZEXFDC;
 						ProvisioningStyle = Automatic;
 					};
 					3EAD95841DA89EC700166685 = {
@@ -299,12 +323,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E7D52A21DB897A000F24173 /* SJDataTableViewCell.m in Sources */,
 				3E31A36C1DB525DC00803CAE /* YCSlideView.m in Sources */,
+				3E7D52A11DB897A000F24173 /* SJDataFixItemTableView.m in Sources */,
 				3E31A3721DB5264F00803CAE /* BenjinViewController.m in Sources */,
 				3EAD95741DA89EC700166685 /* ViewController.m in Sources */,
 				3E31A3711DB5264F00803CAE /* BenxiViewController.m in Sources */,
 				3EAD957A1DA89EC700166685 /* FDcalculator.xcdatamodeld in Sources */,
 				3EAD95711DA89EC700166685 /* AppDelegate.m in Sources */,
+				3E7D52A01DB897A000F24173 /* SJDataTableView.m in Sources */,
 				3EAD956E1DA89EC700166685 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,6 +481,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = APR6ZEXFDC;
 				INFOPLIST_FILE = FDcalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ydm.FDcalculator;
@@ -465,6 +493,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = APR6ZEXFDC;
 				INFOPLIST_FILE = FDcalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ydm.FDcalculator;

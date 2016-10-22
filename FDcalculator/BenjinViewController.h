@@ -10,4 +10,6 @@
 
 @interface BenjinViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollViewTable;
+
 @end

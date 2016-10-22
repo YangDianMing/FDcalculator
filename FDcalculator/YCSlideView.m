@@ -113,12 +113,12 @@
         label_money.font = [UIFont systemFontOfSize:20];
         label_money.textAlignment = NSTextAlignmentRight;
         
-        UILabel *label_sign = [[UILabel alloc] initWithFrame:CGRectMake(86, 51, 75, 20)];
+        UILabel *label_sign = [[UILabel alloc] initWithFrame:CGRectMake(86, 51, 80, 20)];
         label_sign.text = @"(元)月供";
         //[label_sign setTextColor:UIColorRGBA(102, 102, 102, 1)];//灰色
         [label_sign setTextColor:[UIColor whiteColor]];//白色
         label_sign.font = [UIFont systemFontOfSize:20];
-        label_sign.textAlignment = NSTextAlignmentRight;
+        label_sign.textAlignment = NSTextAlignmentLeft;
         
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, buttonWight, buttonhight)];
         
