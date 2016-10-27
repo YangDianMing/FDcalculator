@@ -13,6 +13,8 @@
 		3E7D52A01DB897A000F24173 /* SJDataTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7D529B1DB897A000F24173 /* SJDataTableView.m */; };
 		3E7D52A11DB897A000F24173 /* SJDataFixItemTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7D529D1DB897A000F24173 /* SJDataFixItemTableView.m */; };
 		3E7D52A21DB897A000F24173 /* SJDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7D529F1DB897A000F24173 /* SJDataTableViewCell.m */; };
+		3E9C818F1DBDBC610054D6CF /* MortgageCalculationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9C818E1DBDBC610054D6CF /* MortgageCalculationModel.m */; };
+		3E9C81911DBDEDC90054D6CF /* MortgageCalculationModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9C81901DBDEDC90054D6CF /* MortgageCalculationModelTests.m */; };
 		3EAD956E1DA89EC700166685 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD956D1DA89EC700166685 /* main.m */; };
 		3EAD95711DA89EC700166685 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD95701DA89EC700166685 /* AppDelegate.m */; };
 		3EAD95741DA89EC700166685 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD95731DA89EC700166685 /* ViewController.m */; };
@@ -54,6 +56,9 @@
 		3E7D529D1DB897A000F24173 /* SJDataFixItemTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJDataFixItemTableView.m; sourceTree = "<group>"; };
 		3E7D529E1DB897A000F24173 /* SJDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJDataTableViewCell.h; sourceTree = "<group>"; };
 		3E7D529F1DB897A000F24173 /* SJDataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJDataTableViewCell.m; sourceTree = "<group>"; };
+		3E9C818D1DBDBC610054D6CF /* MortgageCalculationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MortgageCalculationModel.h; sourceTree = "<group>"; };
+		3E9C818E1DBDBC610054D6CF /* MortgageCalculationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MortgageCalculationModel.m; sourceTree = "<group>"; };
+		3E9C81901DBDEDC90054D6CF /* MortgageCalculationModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MortgageCalculationModelTests.m; sourceTree = "<group>"; };
 		3EAD95691DA89EC700166685 /* FDcalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FDcalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAD956D1DA89EC700166685 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3EAD956F1DA89EC700166685 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -144,6 +149,8 @@
 				3E31A36E1DB5264F00803CAE /* BenxiViewController.m */,
 				3E31A36F1DB5264F00803CAE /* BenjinViewController.h */,
 				3E31A3701DB5264F00803CAE /* BenjinViewController.m */,
+				3E9C818D1DBDBC610054D6CF /* MortgageCalculationModel.h */,
+				3E9C818E1DBDBC610054D6CF /* MortgageCalculationModel.m */,
 				3EAD95751DA89EC700166685 /* Main.storyboard */,
 				3EAD957B1DA89EC700166685 /* Assets.xcassets */,
 				3EAD957D1DA89EC700166685 /* LaunchScreen.storyboard */,
@@ -167,6 +174,7 @@
 			children = (
 				3EAD95891DA89EC700166685 /* FDcalculatorTests.m */,
 				3EAD958B1DA89EC700166685 /* Info.plist */,
+				3E9C81901DBDEDC90054D6CF /* MortgageCalculationModelTests.m */,
 			);
 			path = FDcalculatorTests;
 			sourceTree = "<group>";
@@ -327,6 +335,7 @@
 				3E31A36C1DB525DC00803CAE /* YCSlideView.m in Sources */,
 				3E7D52A11DB897A000F24173 /* SJDataFixItemTableView.m in Sources */,
 				3E31A3721DB5264F00803CAE /* BenjinViewController.m in Sources */,
+				3E9C818F1DBDBC610054D6CF /* MortgageCalculationModel.m in Sources */,
 				3EAD95741DA89EC700166685 /* ViewController.m in Sources */,
 				3E31A3711DB5264F00803CAE /* BenxiViewController.m in Sources */,
 				3EAD957A1DA89EC700166685 /* FDcalculator.xcdatamodeld in Sources */,
@@ -341,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EAD958A1DA89EC700166685 /* FDcalculatorTests.m in Sources */,
+				3E9C81911DBDEDC90054D6CF /* MortgageCalculationModelTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

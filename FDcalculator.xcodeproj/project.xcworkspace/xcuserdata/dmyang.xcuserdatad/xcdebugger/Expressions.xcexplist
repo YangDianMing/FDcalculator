@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[MortgageCalculationModelTests testDengeBenjin]:MortgageCalculationModelTests.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[MortgageCalculationModel setLoanRatesYers:]:MortgageCalculationModel.h">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MortgageCalculationModelTests testDengeYuegong]:MortgageCalculationModelTests.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
