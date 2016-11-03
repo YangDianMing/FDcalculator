@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,21 +20,102 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00W-hu-6ym">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="105" id="dH5-pO-zsm"/>
-                                </constraints>
                                 <color key="barTintColor" red="0.074509803921568626" green="0.10588235294117647" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="房贷计算器" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhU-TK-xx8">
-                                <frame key="frameInset" minX="144" minY="33" width="87" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="借贷金额" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EH-tr-rre">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="71" id="va0-Yi-6pw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="万元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjn-ma-iVa">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="30" placeholder="请输入贷款金额" textAlignment="center" minimumFontSize="21" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="L5f-dK-eUY">
+                                <color key="textColor" red="0.0" green="0.53333333333333333" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeH-vo-wdP" userLabel="分割线">
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="e4l-7K-SSA"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zPe-Q8-r4o">
-                                <frame key="frameInset" minX="16" minY="64" width="343" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="贷款利率" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3w4-7f-se2">
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="％" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKM-Zz-doT">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="4.9" placeholder="请输入贷款利率" textAlignment="center" minimumFontSize="21" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yYV-h3-70G">
+                                <color key="textColor" red="0.0" green="0.53333333329999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNH-nz-zoM" userLabel="分割线">
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="oaH-0v-26q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="贷款期限" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J81-lo-59N">
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPA-YG-fAs">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="30" placeholder="请输入贷款年限" textAlignment="center" minimumFontSize="21" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oyu-ne-IC7">
+                                <color key="textColor" red="0.0" green="0.53333333329999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRv-np-Yn4" userLabel="分割线">
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="zZy-hc-2uY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="利率折扣" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSj-7k-oXr">
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="倍" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBY-9z-ijN">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.0" placeholder="请输入贷款金额" textAlignment="center" minimumFontSize="21" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8so-2o-oNF">
+                                <color key="textColor" red="0.0" green="0.53333333329999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zPe-Q8-r4o">
                                 <color key="backgroundColor" red="0.058823529411764705" green="0.090196078431372548" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                 <segments>
                                     <segment title="商业"/>
@@ -42,113 +124,70 @@
                                 </segments>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBm-BK-7Zp" userLabel="分割线">
-                                <frame key="frameInset" minX="20" minY="120" width="375" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="借贷金额" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EH-tr-rre">
-                                <frame key="frameInset" minX="20" minY="134" width="71" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="万元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjn-ma-iVa">
-                                <frame key="frameInset" minX="320" minY="134" width="35" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="30" placeholder="请输入贷款金额" textAlignment="center" minimumFontSize="21" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="L5f-dK-eUY">
-                                <frame key="frameInset" minX="99" minY="129" width="213" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.0" green="0.53333333333333333" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeH-vo-wdP" userLabel="分割线">
-                                <frame key="frameInset" minX="20" minY="167" width="375" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="贷款利率" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3w4-7f-se2">
-                                <frame key="frameInset" minX="20" minY="181" width="71" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="％" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKM-Zz-doT">
-                                <frame key="frameInset" minX="320" minY="181" width="35" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="3.25" placeholder="请输入贷款利率" textAlignment="center" minimumFontSize="21" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yYV-h3-70G">
-                                <frame key="frameInset" minX="99" minY="176" width="213" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.0" green="0.53333333329999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNH-nz-zoM" userLabel="分割线">
-                                <frame key="frameInset" minX="20" minY="214" width="375" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="贷款期限" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J81-lo-59N">
-                                <frame key="frameInset" minX="20" minY="228" width="71" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="年" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPA-YG-fAs">
-                                <frame key="frameInset" minX="320" minY="228" width="35" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="30" placeholder="请输入贷款年限" textAlignment="center" minimumFontSize="21" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oyu-ne-IC7">
-                                <frame key="frameInset" minX="99" minY="223" width="213" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.0" green="0.53333333329999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Xk-3G-Kg3" userLabel="分割线">
-                                <frame key="frameInset" minX="20" minY="261" width="375" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="00W-hu-6ym" secondAttribute="trailing" id="4tD-Lm-mtm"/>
-                            <constraint firstItem="00W-hu-6ym" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ofn-oR-7gr"/>
-                            <constraint firstItem="00W-hu-6ym" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bGA-ED-m84"/>
+                            <constraint firstItem="J81-lo-59N" firstAttribute="baseline" secondItem="CPA-YG-fAs" secondAttribute="baseline" id="1gW-v6-1MK"/>
+                            <constraint firstItem="zPe-Q8-r4o" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="3L3-qp-fR8"/>
+                            <constraint firstItem="yYV-h3-70G" firstAttribute="top" secondItem="JeH-vo-wdP" secondAttribute="bottom" constant="8" symbolic="YES" id="3Qd-KH-38C"/>
+                            <constraint firstItem="3w4-7f-se2" firstAttribute="top" secondItem="JeH-vo-wdP" secondAttribute="bottom" constant="12" id="5bC-Ho-zz3"/>
+                            <constraint firstItem="JeH-vo-wdP" firstAttribute="trailing" secondItem="CRv-np-Yn4" secondAttribute="trailing" id="6Oe-0E-Xxp"/>
+                            <constraint firstItem="oyu-ne-IC7" firstAttribute="top" secondItem="RNH-nz-zoM" secondAttribute="bottom" constant="8" symbolic="YES" id="6wq-7t-qib"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JeH-vo-wdP" secondAttribute="trailing" constant="-36" id="AXa-0U-Sug"/>
+                            <constraint firstItem="hSj-7k-oXr" firstAttribute="baseline" secondItem="gBY-9z-ijN" secondAttribute="baseline" id="AZ4-AB-7kT"/>
+                            <constraint firstItem="CRv-np-Yn4" firstAttribute="leading" secondItem="hSj-7k-oXr" secondAttribute="leading" id="DWI-d6-OwY"/>
+                            <constraint firstItem="00W-hu-6ym" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EdQ-SD-h6D"/>
+                            <constraint firstItem="3w4-7f-se2" firstAttribute="leading" secondItem="CRv-np-Yn4" secondAttribute="leading" id="Ibl-Vp-4Mc"/>
+                            <constraint firstItem="L5f-dK-eUY" firstAttribute="centerY" secondItem="Wjn-ma-iVa" secondAttribute="centerY" id="Mzj-Mi-bYS"/>
+                            <constraint firstItem="oyu-ne-IC7" firstAttribute="leading" secondItem="J81-lo-59N" secondAttribute="trailing" constant="8" symbolic="YES" id="Qwb-Qu-TxP"/>
+                            <constraint firstItem="yYV-h3-70G" firstAttribute="leading" secondItem="8so-2o-oNF" secondAttribute="leading" id="S0Q-3c-S4u"/>
+                            <constraint firstItem="JeH-vo-wdP" firstAttribute="top" secondItem="L5f-dK-eUY" secondAttribute="bottom" constant="8" symbolic="YES" id="TXO-eJ-u6h"/>
+                            <constraint firstItem="yYV-h3-70G" firstAttribute="leading" secondItem="3w4-7f-se2" secondAttribute="trailing" constant="8" symbolic="YES" id="Uxa-cl-8Wj"/>
+                            <constraint firstItem="8so-2o-oNF" firstAttribute="leading" secondItem="oyu-ne-IC7" secondAttribute="leading" id="WRh-3q-ZnB"/>
+                            <constraint firstItem="RNH-nz-zoM" firstAttribute="top" secondItem="8so-2o-oNF" secondAttribute="bottom" constant="8" symbolic="YES" id="Wk2-cf-bYf"/>
+                            <constraint firstItem="8EH-tr-rre" firstAttribute="leading" secondItem="JeH-vo-wdP" secondAttribute="leading" id="YBL-sV-pn8"/>
+                            <constraint firstItem="Wjn-ma-iVa" firstAttribute="leading" secondItem="L5f-dK-eUY" secondAttribute="trailing" constant="8" symbolic="YES" id="YwY-Sl-kaI"/>
+                            <constraint firstItem="L5f-dK-eUY" firstAttribute="top" secondItem="zPe-Q8-r4o" secondAttribute="bottom" constant="21" id="ZS6-R6-0nJ"/>
+                            <constraint firstItem="Wjn-ma-iVa" firstAttribute="trailing" secondItem="XKM-Zz-doT" secondAttribute="trailing" id="ZTR-1E-4eO"/>
+                            <constraint firstItem="8EH-tr-rre" firstAttribute="baseline" secondItem="Wjn-ma-iVa" secondAttribute="baseline" id="aep-ML-fLO"/>
+                            <constraint firstItem="L5f-dK-eUY" firstAttribute="leading" secondItem="yYV-h3-70G" secondAttribute="leading" id="bER-eE-dXU"/>
+                            <constraint firstItem="JeH-vo-wdP" firstAttribute="leading" secondItem="3w4-7f-se2" secondAttribute="leading" id="bds-HM-UH8"/>
+                            <constraint firstItem="8so-2o-oNF" firstAttribute="top" secondItem="CRv-np-Yn4" secondAttribute="bottom" constant="8" symbolic="YES" id="boh-oJ-wLj"/>
+                            <constraint firstItem="JeH-vo-wdP" firstAttribute="top" secondItem="8EH-tr-rre" secondAttribute="bottom" constant="12" id="cMQ-F0-F6w"/>
+                            <constraint firstItem="hSj-7k-oXr" firstAttribute="top" secondItem="CRv-np-Yn4" secondAttribute="bottom" constant="12" id="dLN-8w-4fY"/>
+                            <constraint firstItem="zPe-Q8-r4o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="31" id="emn-8k-b0Y"/>
+                            <constraint firstItem="8EH-tr-rre" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="fKc-CG-4No"/>
+                            <constraint firstItem="CRv-np-Yn4" firstAttribute="top" secondItem="yYV-h3-70G" secondAttribute="bottom" constant="8" symbolic="YES" id="fRl-nJ-kLi"/>
+                            <constraint firstItem="L5f-dK-eUY" firstAttribute="top" secondItem="00W-hu-6ym" secondAttribute="bottom" constant="13" id="feN-jf-5jV"/>
+                            <constraint firstItem="00W-hu-6ym" firstAttribute="centerX" secondItem="zPe-Q8-r4o" secondAttribute="centerX" id="gAz-5j-8d7"/>
+                            <constraint firstItem="3w4-7f-se2" firstAttribute="baseline" secondItem="XKM-Zz-doT" secondAttribute="baseline" id="gus-y1-7pC"/>
+                            <constraint firstItem="Wjn-ma-iVa" firstAttribute="leading" secondItem="XKM-Zz-doT" secondAttribute="leading" id="gzB-zk-4Wm"/>
+                            <constraint firstItem="oyu-ne-IC7" firstAttribute="centerY" secondItem="CPA-YG-fAs" secondAttribute="centerY" id="h7E-EZ-8re"/>
+                            <constraint firstItem="RNH-nz-zoM" firstAttribute="leading" secondItem="J81-lo-59N" secondAttribute="leading" id="hwl-4T-6IL"/>
+                            <constraint firstItem="gBY-9z-ijN" firstAttribute="trailing" secondItem="CPA-YG-fAs" secondAttribute="trailing" id="iBW-SN-W2U"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Wjn-ma-iVa" secondAttribute="trailing" constant="4" id="jEC-Qo-7Sw"/>
+                            <constraint firstItem="XKM-Zz-doT" firstAttribute="trailing" secondItem="gBY-9z-ijN" secondAttribute="trailing" id="jKh-sp-oZi"/>
+                            <constraint firstItem="hSj-7k-oXr" firstAttribute="leading" secondItem="RNH-nz-zoM" secondAttribute="leading" id="jxZ-VV-PMm"/>
+                            <constraint firstItem="XKM-Zz-doT" firstAttribute="leading" secondItem="yYV-h3-70G" secondAttribute="trailing" constant="8" symbolic="YES" id="k8e-E1-8eW"/>
+                            <constraint firstItem="8so-2o-oNF" firstAttribute="leading" secondItem="hSj-7k-oXr" secondAttribute="trailing" constant="8" symbolic="YES" id="kPs-L7-FAj"/>
+                            <constraint firstItem="CPA-YG-fAs" firstAttribute="leading" secondItem="oyu-ne-IC7" secondAttribute="trailing" constant="8" symbolic="YES" id="kQU-ae-Y9T"/>
+                            <constraint firstItem="XKM-Zz-doT" firstAttribute="leading" secondItem="gBY-9z-ijN" secondAttribute="leading" id="loR-aL-yRm"/>
+                            <constraint firstItem="L5f-dK-eUY" firstAttribute="leading" secondItem="8EH-tr-rre" secondAttribute="trailing" constant="8" symbolic="YES" id="mtm-jB-7Ji"/>
+                            <constraint firstItem="CRv-np-Yn4" firstAttribute="trailing" secondItem="RNH-nz-zoM" secondAttribute="trailing" id="nAV-Bc-WAL"/>
+                            <constraint firstItem="gBY-9z-ijN" firstAttribute="leading" secondItem="CPA-YG-fAs" secondAttribute="leading" id="q0W-Cn-8Mz"/>
+                            <constraint firstItem="00W-hu-6ym" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="r13-s3-w9O"/>
+                            <constraint firstItem="yYV-h3-70G" firstAttribute="centerY" secondItem="XKM-Zz-doT" secondAttribute="centerY" id="rh8-yb-Ch4"/>
+                            <constraint firstItem="gBY-9z-ijN" firstAttribute="leading" secondItem="8so-2o-oNF" secondAttribute="trailing" constant="8" symbolic="YES" id="sRt-OA-eZP"/>
+                            <constraint firstAttribute="trailing" secondItem="00W-hu-6ym" secondAttribute="trailing" id="xGH-OE-Iv2"/>
+                            <constraint firstItem="8so-2o-oNF" firstAttribute="centerY" secondItem="gBY-9z-ijN" secondAttribute="centerY" id="xYz-1h-4Ah"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="txtDaiKuanLiLv" destination="yYV-h3-70G" id="TCm-9b-a5e"/>
+                        <outlet property="txtDaiKuanQiXian" destination="oyu-ne-IC7" id="qpi-Nc-mCX"/>
+                        <outlet property="txtJieDaiJinE" destination="L5f-dK-eUY" id="YaC-zT-ipG"/>
+                        <outlet property="txtLiLvZheKou" destination="8so-2o-oNF" id="XXy-uK-M4o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -166,58 +205,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MX6-uA-rOh">
-                                <frame key="frameInset" minY="20" width="375" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MX6-uA-rOh">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="月还款额(元)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9LZ-Yx-ee9">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="月还款额(元)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9LZ-Yx-ee9">
                                         <frame key="frameInset" minX="20" minY="13" width="102" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1,401" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRF-ZM-OCz">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1,401" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRF-ZM-OCz">
                                         <frame key="frameInset" minX="195" minY="13" width="160" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.53333333329999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="支付利息总额(元)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klA-LK-unz">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="支付利息总额(元)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klA-LK-unz">
                                         <frame key="frameInset" minX="20" minY="50" width="142" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="170,022" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMW-ws-h0o">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="170,022" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMW-ws-h0o">
                                         <frame key="frameInset" minX="195" minY="50" width="160" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.53333333329999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="还款总额(元)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhG-O4-QZ0">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="还款总额(元)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhG-O4-QZ0">
                                         <frame key="frameInset" minX="20" minY="87" width="102" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1,305" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQ4-a6-XBN">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1,305" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQ4-a6-XBN">
                                         <frame key="frameInset" minX="195" minY="87" width="160" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.53333333329999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="TQ4-a6-XBN" secondAttribute="trailing" constant="20" id="2sV-xD-4LD"/>
+                                    <constraint firstItem="TQ4-a6-XBN" firstAttribute="top" secondItem="pMW-ws-h0o" secondAttribute="bottom" constant="16" id="Arw-29-yZA"/>
+                                    <constraint firstItem="TQ4-a6-XBN" firstAttribute="leading" secondItem="ZhG-O4-QZ0" secondAttribute="trailing" constant="73" id="BpP-Md-TNX"/>
+                                    <constraint firstItem="klA-LK-unz" firstAttribute="top" secondItem="9LZ-Yx-ee9" secondAttribute="bottom" constant="16" id="CWG-AS-laQ"/>
+                                    <constraint firstAttribute="height" constant="120" id="DRj-03-ONU"/>
+                                    <constraint firstItem="bRF-ZM-OCz" firstAttribute="top" secondItem="MX6-uA-rOh" secondAttribute="top" constant="13" id="Ehm-oy-DrE"/>
+                                    <constraint firstItem="pMW-ws-h0o" firstAttribute="leading" secondItem="klA-LK-unz" secondAttribute="trailing" constant="33" id="Kzq-JK-SrP"/>
+                                    <constraint firstAttribute="width" constant="375" id="TyE-ef-cms"/>
+                                    <constraint firstItem="ZhG-O4-QZ0" firstAttribute="leading" secondItem="MX6-uA-rOh" secondAttribute="leading" constant="20" id="U7N-eN-tBd"/>
+                                    <constraint firstAttribute="trailing" secondItem="pMW-ws-h0o" secondAttribute="trailing" constant="20" id="X77-jK-JX8"/>
+                                    <constraint firstItem="ZhG-O4-QZ0" firstAttribute="top" secondItem="klA-LK-unz" secondAttribute="bottom" constant="16" id="doy-zo-stc"/>
+                                    <constraint firstItem="pMW-ws-h0o" firstAttribute="top" secondItem="bRF-ZM-OCz" secondAttribute="bottom" constant="16" id="eTh-ZX-ok6"/>
+                                    <constraint firstItem="9LZ-Yx-ee9" firstAttribute="leading" secondItem="MX6-uA-rOh" secondAttribute="leading" constant="20" id="kVW-X1-8tT"/>
+                                    <constraint firstItem="klA-LK-unz" firstAttribute="leading" secondItem="MX6-uA-rOh" secondAttribute="leading" constant="20" id="qUo-4L-3t4"/>
+                                    <constraint firstItem="9LZ-Yx-ee9" firstAttribute="top" secondItem="MX6-uA-rOh" secondAttribute="top" constant="13" id="sb8-YM-fhZ"/>
+                                    <constraint firstItem="bRF-ZM-OCz" firstAttribute="leading" secondItem="9LZ-Yx-ee9" secondAttribute="trailing" constant="73" id="tR9-mr-wgY"/>
+                                    <constraint firstAttribute="trailing" secondItem="bRF-ZM-OCz" secondAttribute="trailing" constant="20" id="vcX-W9-Fze"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MX6-uA-rOh" firstAttribute="leading" secondItem="61J-sw-Nsg" secondAttribute="leading" id="Gqa-dP-2Tm"/>
+                            <constraint firstItem="MX6-uA-rOh" firstAttribute="top" secondItem="4e9-xm-dfJ" secondAttribute="bottom" id="T3k-dI-btS"/>
+                            <constraint firstAttribute="trailing" secondItem="MX6-uA-rOh" secondAttribute="trailing" id="ZSq-g4-gbz"/>
+                            <constraint firstItem="MX6-uA-rOh" firstAttribute="top" secondItem="4e9-xm-dfJ" secondAttribute="bottom" id="deb-QU-Txl"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="labelMonthRepayment" destination="bRF-ZM-OCz" id="sS7-XE-xUa"/>
+                        <outlet property="labelTotalInterest" destination="pMW-ws-h0o" id="oRY-cq-krB"/>
+                        <outlet property="labelTotalRepayment" destination="TQ4-a6-XBN" id="HDk-OT-eB6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y1f-kl-cJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -236,71 +297,71 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZUK-ac-I9u">
-                                <frame key="frameInset" width="375" height="667"/>
+                                <frame key="frameInset" width="375" height="669"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KgV-Ho-ORW">
-                                        <rect key="frame" x="0.0" y="20" width="375" height="160"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="月还款额(元)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3a-bl-1dp">
-                                                <frame key="frameInset" minX="20" minY="13" width="102" height="21"/>
+                                                <frame key="frameInset" minX="20" minY="13" width="110" height="20.5"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1,401" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="na5-qu-xkw">
-                                                <frame key="frameInset" minX="195" minY="13" width="160" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.53333333329999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="支付利息总额(元)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLw-tk-NW8">
-                                                <frame key="frameInset" minX="20" minY="87" width="155" height="21"/>
+                                                <frame key="frameInset" minX="20" minY="86" width="155" height="20.5"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="170,022" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEK-Kd-Dna">
-                                                <frame key="frameInset" minX="195" minY="87" width="160" height="21"/>
+                                                <frame key="frameInset" minX="195" minY="86" width="160" height="20.5"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.53333333329999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="逐月递减(元)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMk-NO-bNt">
-                                                <frame key="frameInset" minX="20" minY="50" width="102" height="21"/>
+                                                <frame key="frameInset" minX="20" minY="49.5" width="110" height="20.5"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1,401" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFn-ni-rqf">
-                                                <frame key="frameInset" minX="195" minY="50" width="160" height="21"/>
+                                                <frame key="frameInset" minX="195" minY="49.5" width="160" height="20.5"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.53333333329999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="还款总额(元)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYY-Yd-5aW">
-                                                <frame key="frameInset" minX="20" minY="124" width="102" height="21"/>
+                                                <frame key="frameInset" minX="20" minY="122.5" width="110" height="20.5"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1,305" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPS-gu-Exf">
-                                                <frame key="frameInset" minX="195" minY="124" width="160" height="21"/>
+                                                <frame key="frameInset" minX="195" minY="122.5" width="160" height="20.5"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.53333333329999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1,401" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="na5-qu-xkw">
+                                                <frame key="frameInset" minX="195" minY="13" width="160" height="20.5"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.53333333329999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
                             </scrollView>
@@ -308,12 +369,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="labelMonthRepayment" destination="na5-qu-xkw" id="nuH-yp-1S0"/>
+                        <outlet property="labelMonthlyDecline" destination="aFn-ni-rqf" id="v28-tJ-dlA"/>
+                        <outlet property="labelTotalInterest" destination="iEK-Kd-Dna" id="BsQ-pd-pdr"/>
+                        <outlet property="labelTotalRepayment" destination="oPS-gu-Exf" id="U0J-NK-zpU"/>
                         <outlet property="scrollViewTable" destination="ZUK-ac-I9u" id="lyH-Xc-LCH"/>
+                        <outlet property="viewTopView" destination="KgV-Ho-ORW" id="Msg-aC-5bk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kLW-zQ-c79" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="944.79999999999995" y="801.94902548725645"/>
+            <point key="canvasLocation" x="933.60000000000002" y="790.25487256371821"/>
         </scene>
     </scenes>
 </document>

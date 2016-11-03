@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E20C8DA1DC74CC3001D5B17 /* YDMDataTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E20C8D71DC74CC3001D5B17 /* YDMDataTableView.m */; };
+		3E20C8DB1DC74CC3001D5B17 /* YDMDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E20C8D91DC74CC3001D5B17 /* YDMDataTableViewCell.m */; };
 		3E31A36C1DB525DC00803CAE /* YCSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E31A36B1DB525DC00803CAE /* YCSlideView.m */; };
 		3E31A3711DB5264F00803CAE /* BenxiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E31A36E1DB5264F00803CAE /* BenxiViewController.m */; };
 		3E31A3721DB5264F00803CAE /* BenjinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E31A3701DB5264F00803CAE /* BenjinViewController.m */; };
@@ -44,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E20C8D61DC74CC3001D5B17 /* YDMDataTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMDataTableView.h; sourceTree = "<group>"; };
+		3E20C8D71DC74CC3001D5B17 /* YDMDataTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMDataTableView.m; sourceTree = "<group>"; };
+		3E20C8D81DC74CC3001D5B17 /* YDMDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMDataTableViewCell.h; sourceTree = "<group>"; };
+		3E20C8D91DC74CC3001D5B17 /* YDMDataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMDataTableViewCell.m; sourceTree = "<group>"; };
 		3E31A36A1DB525DC00803CAE /* YCSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCSlideView.h; sourceTree = "<group>"; };
 		3E31A36B1DB525DC00803CAE /* YCSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCSlideView.m; sourceTree = "<group>"; };
 		3E31A36D1DB5264F00803CAE /* BenxiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BenxiViewController.h; sourceTree = "<group>"; };
@@ -103,6 +109,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E20C8DC1DC74CD3001D5B17 /* YDMDataTableView */ = {
+			isa = PBXGroup;
+			children = (
+				3E20C8D61DC74CC3001D5B17 /* YDMDataTableView.h */,
+				3E20C8D71DC74CC3001D5B17 /* YDMDataTableView.m */,
+				3E20C8D81DC74CC3001D5B17 /* YDMDataTableViewCell.h */,
+				3E20C8D91DC74CC3001D5B17 /* YDMDataTableViewCell.m */,
+			);
+			name = YDMDataTableView;
+			sourceTree = "<group>";
+		};
 		3E7D52A31DB897BA00F24173 /* SJDataTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +156,7 @@
 		3EAD956B1DA89EC700166685 /* FDcalculator */ = {
 			isa = PBXGroup;
 			children = (
+				3E20C8DC1DC74CD3001D5B17 /* YDMDataTableView */,
 				3E7D52A31DB897BA00F24173 /* SJDataTableView */,
 				3EC9B36C1DAF76DA0026602E /* YCSlideView */,
 				3EAD956F1DA89EC700166685 /* AppDelegate.h */,
@@ -335,10 +353,12 @@
 				3E31A36C1DB525DC00803CAE /* YCSlideView.m in Sources */,
 				3E7D52A11DB897A000F24173 /* SJDataFixItemTableView.m in Sources */,
 				3E31A3721DB5264F00803CAE /* BenjinViewController.m in Sources */,
+				3E20C8DA1DC74CC3001D5B17 /* YDMDataTableView.m in Sources */,
 				3E9C818F1DBDBC610054D6CF /* MortgageCalculationModel.m in Sources */,
 				3EAD95741DA89EC700166685 /* ViewController.m in Sources */,
 				3E31A3711DB5264F00803CAE /* BenxiViewController.m in Sources */,
 				3EAD957A1DA89EC700166685 /* FDcalculator.xcdatamodeld in Sources */,
+				3E20C8DB1DC74CC3001D5B17 /* YDMDataTableViewCell.m in Sources */,
 				3EAD95711DA89EC700166685 /* AppDelegate.m in Sources */,
 				3E7D52A01DB897A000F24173 /* SJDataTableView.m in Sources */,
 				3EAD956E1DA89EC700166685 /* main.m in Sources */,

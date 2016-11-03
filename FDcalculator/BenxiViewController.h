@@ -10,4 +10,13 @@
 
 @interface BenxiViewController : UIViewController
 
+//月还款MonthRepayment;
+@property (weak, nonatomic) IBOutlet UILabel *labelMonthRepayment;
+
+//支付利息总额TotalInterest;
+@property (weak, nonatomic) IBOutlet UILabel *labelTotalInterest;
+
+//还款总额TotalRepayment;
+@property (weak, nonatomic) IBOutlet UILabel *labelTotalRepayment;
+
 @end

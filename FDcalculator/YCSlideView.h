@@ -14,6 +14,8 @@
 
 - (instancetype)initWithFrame:(CGRect)frame WithViewControllers:(NSArray *)viewControllers;
 
+@property (nonatomic,strong)UILabel *labelBenxi;
 
+@property (nonatomic,strong)UILabel *labelBenjin;
 
 @end

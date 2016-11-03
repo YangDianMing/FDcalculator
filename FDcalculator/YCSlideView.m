@@ -28,6 +28,7 @@
 
 @property (nonatomic,strong) NSMutableArray * btnArray;
 
+
 @end
 
 
@@ -98,7 +99,7 @@
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i * buttonWight, 0, buttonWight, buttonhight)];
         
-        UILabel *label_title = [[UILabel alloc] initWithFrame:CGRectMake(54, 20, 85, 20)];
+        UILabel *label_title = [[UILabel alloc] initWithFrame:CGRectMake(kWindowWidth/4-42, 20, 85, 20)];
         label_title.text = self.vcArray[i][0];
         //[label_title setTextColor:UIColorRGBA(184, 233, 134, 1)];//浅绿
         //[label_title setTextColor:UIColorRGBA(0, 136, 204, 1)];//蓝色
@@ -106,12 +107,23 @@
         label_title.font = [UIFont systemFontOfSize:20];
         label_title.textAlignment = NSTextAlignmentCenter;
         
-        UILabel *label_money = [[UILabel alloc] initWithFrame:CGRectMake(0, 51, 76, 20)];
-        label_money.text =  self.vcArray[i][2];
-        //[label_money setTextColor:UIColorRGBA(184, 233, 134, 1)];//浅绿
-        [label_money setTextColor:UIColorRGBA(243, 166, 39, 1)];//橙色
-        label_money.font = [UIFont systemFontOfSize:20];
-        label_money.textAlignment = NSTextAlignmentRight;
+        if (i==0) {
+            _labelBenxi = [[UILabel alloc] initWithFrame:CGRectMake(0, 51, 80, 20)];
+            _labelBenxi.text =  self.vcArray[i][2];
+            //[_label_money setTextColor:UIColorRGBA(184, 233, 134, 1)];//浅绿
+            [_labelBenxi setTextColor:UIColorRGBA(243, 166, 39, 1)];//橙色
+            _labelBenxi.font = [UIFont systemFontOfSize:20];
+            _labelBenxi.textAlignment = NSTextAlignmentRight;
+            [_labelBenxi setAdjustsFontSizeToFitWidth:YES];//自动适应行高
+        } else {
+            _labelBenjin = [[UILabel alloc] initWithFrame:CGRectMake(0, 51, 80, 20)];
+            _labelBenjin.text =  self.vcArray[i][2];
+            //[_label_money setTextColor:UIColorRGBA(184, 233, 134, 1)];//浅绿
+            [_labelBenjin setTextColor:UIColorRGBA(243, 166, 39, 1)];//橙色
+            _labelBenjin.font = [UIFont systemFontOfSize:20];
+            _labelBenjin.textAlignment = NSTextAlignmentRight;
+            [_labelBenjin setAdjustsFontSizeToFitWidth:YES];//自动适应行高
+        }
         
         UILabel *label_sign = [[UILabel alloc] initWithFrame:CGRectMake(86, 51, 80, 20)];
         label_sign.text = @"(元)月供";
@@ -146,17 +158,27 @@
         [button addTarget:self action:@selector(tabButton:) forControlEvents:UIControlEventTouchUpInside];
         [view addSubview:button];
         
-        [view addSubview:label_title];
-        [view addSubview:label_money];
-        [view addSubview:label_sign];
+        if (i==0) {
+            [view addSubview:label_title];
+            [view addSubview:_labelBenxi];
+            [view addSubview:label_sign];
+            
+            NSMutableArray *btnItemArray = [[NSMutableArray alloc] initWithObjects: button, label_title, _labelBenxi , label_sign ,nil];
+            [_btnArray addObject:btnItemArray];
+        } else {
+            [view addSubview:label_title];
+            [view addSubview:_labelBenjin];
+            [view addSubview:label_sign];
+            
+            NSMutableArray *btnItemArray = [[NSMutableArray alloc] initWithObjects: button, label_title, _labelBenjin , label_sign ,nil];
+            [_btnArray addObject:btnItemArray];
+        }
         
-        NSMutableArray *btnItemArray = [[NSMutableArray alloc] initWithObjects: button, label_title, label_money , label_sign ,nil];
-        [_btnArray addObject:btnItemArray];
         /*
         [_btnArray addObject:button];
         
         [_btnArray addObject:label_title];
-        [_btnArray addObject:label_money];
+        [_btnArray addObject:_label_money];
         [_btnArray addObject:label_sign];
         */
         [_topView addSubview:view];
@@ -177,7 +199,7 @@
 - (void)configBottomView{
 
     
-    CGRect  bottomScrollViewFrame = CGRectMake(0, KTopViewHight, kWindowWidth, kWindowHeight - KTopViewHight );
+    CGRect  bottomScrollViewFrame = CGRectMake(0, KTopViewHight, kWindowWidth, kWindowHeight-350  );//- KTopViewHight
     
     self.bottomScrollView = [[UIScrollView alloc]initWithFrame:bottomScrollViewFrame];
     
@@ -187,7 +209,7 @@
     
      CGRect  VCFrame = CGRectMake(i * kWindowWidth, 0, kWindowWidth, bottomScrollViewFrame.size.height);
     
-        NSString * key = self.vcArray[i][0];
+        //NSString * key = self.vcArray[i][0];
         
         UIViewController * vc = _vcArray[i][1] ;
         
@@ -229,10 +251,10 @@
     
     for (NSMutableArray * btnItem in _btnArray){
         UIButton *btn = [btnItem objectAtIndex:0];
-        //label_title, label_money , label_sign
+        //label_title, _label_money , label_sign
         /*
         UILabel * label_title = [btnItem objectAtIndex:1];
-        UILabel * label_money = [btnItem objectAtIndex:2];
+        UILabel * _label_money = [btnItem objectAtIndex:2];
         UILabel * label_sign = [btnItem objectAtIndex:3];
         */
         
