@@ -15,11 +15,13 @@
 
 #define kWindowHeight                       ([[UIScreen mainScreen] bounds].size.height)
 
+#define UIColorRGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
 #define KCount 300
 
-@interface BenjinViewController ()
+@interface BenjinViewController ()<UIScrollViewDelegate,UITextFieldDelegate>
 
-
+@property (nonatomic, strong) UIView * tbHead;
 
 @end
 
@@ -29,6 +31,7 @@
     
     [super viewDidLoad];
     
+    //self.headerAarray = array;
     /*
     self.mc = [MortgageCalculationModel new];
     self.mc.LoanAmount = 300000;
@@ -36,13 +39,34 @@
     self.mc.LoanRatesYers = 0.049;
     [self.mc PrincipalCalculation];
      */
+    
+    [self setupView];
+}
+
+//视图初始化
+-(void)setupView{
+    
+    //初始化视图位置
     [self setLableRectFram:_labelMonthRepayment];
     [self setLableRectFram:_labelTotalInterest];
     [self setLableRectFram:_labelTotalRepayment];
     [self setLableRectFram:_labelMonthlyDecline];
+    self.scrollViewTable.delegate = self;
     
-    //self.scrollViewTable = nil;
-    
+    //UI生成headerAarray浮动表头
+    NSArray * headerAarray = @[@"期次", @"偿还本息", @"偿还本金", @"支付利息", @"剩余本金"];
+    self.tbHead =[[UIView alloc]initWithFrame:CGRectMake(0, 160, kWindowWidth, 30)];
+    [self.tbHead setBackgroundColor:UIColorRGBA(25, 37, 51, 1)];//[UIColor whiteColor]
+    for(int i = 0 ; i < [headerAarray count] ; i++){
+        UILabel *headLabel=[[UILabel alloc]initWithFrame:CGRectMake(i*kWindowWidth*0.2f, 0, kWindowWidth*0.2f, 30)];
+        [headLabel setText:[headerAarray objectAtIndex:i]];
+        [headLabel setTextAlignment:NSTextAlignmentCenter];
+        [headLabel setAdjustsFontSizeToFitWidth:YES];//自动适应行高
+        headLabel.font = [UIFont systemFontOfSize:14];//头行字体
+        headLabel.textColor = [UIColor whiteColor];
+        [self.tbHead addSubview:headLabel];
+    }
+    [self.scrollViewTable addSubview:self.tbHead];
 }
 
 -(void)setLableRectFram:(UILabel*)label{
@@ -52,9 +76,6 @@
     label.frame = labelRect;
 }
 
--(void)viewDidLayoutSubviews{
-    
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -66,13 +87,14 @@
     int Count = self.mc.LoanTerm+1;
     NSArray * headerAarray = [[NSArray alloc] initWithObjects:@"期次", @"偿还本息", @"偿还本金", @"支付利息", @"剩余本金", nil];
     NSMutableArray *dataArray = [NSMutableArray new];
+    MortgageCalculationModel * mc = [MortgageCalculationModel new];
     for (int i = 1 ; i< Count; i++) {
         NSMutableDictionary *dataDict = [NSMutableDictionary new];
         [dataDict setObject:[NSString stringWithFormat:@"%.0f",[self.mc.principalArray[i][0] floatValue]] forKey:[headerAarray objectAtIndex:0]];
-        [dataDict setObject:[NSString stringWithFormat:@"%.2f",[self.mc.principalArray[i][1] floatValue]] forKey:[headerAarray objectAtIndex:1]];
-        [dataDict setObject:[NSString stringWithFormat:@"%.2f",[self.mc.principalArray[i][2] floatValue]] forKey:[headerAarray objectAtIndex:2]];
-        [dataDict setObject:[NSString stringWithFormat:@"%.2f",[self.mc.principalArray[i][3] floatValue]] forKey:[headerAarray objectAtIndex:3]];
-        [dataDict setObject:[NSString stringWithFormat:@"%.2f",[self.mc.principalArray[i][4] floatValue]] forKey:[headerAarray objectAtIndex:4]];
+        [dataDict setObject:[mc YDMNumberFormatterCurrency:[self.mc.principalArray[i][1] floatValue]] forKey:[headerAarray objectAtIndex:1]];
+        [dataDict setObject:[mc YDMNumberFormatterCurrency:[self.mc.principalArray[i][2] floatValue]] forKey:[headerAarray objectAtIndex:2]];
+        [dataDict setObject:[mc YDMNumberFormatterCurrency:[self.mc.principalArray[i][3] floatValue]] forKey:[headerAarray objectAtIndex:3]];
+        [dataDict setObject:[mc YDMNumberFormatterCurrency:[self.mc.principalArray[i][4] floatValue]] forKey:[headerAarray objectAtIndex:4]];
         [dataArray addObject:dataDict];
     }
     
@@ -91,10 +113,24 @@
     viewRect.size.width = kWindowWidth;
     self.viewTopView.frame = viewRect;
     
-    //self.view.backgroundColor = [UIColor redColor];//调试红色背景
-    
     [self.scrollViewTable addSubview:table];
-    table = nil;
+
+}
+
+//滚动跟踪
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    CGFloat y = scrollView.contentOffset.y;
+    if (y > 160) {
+        CGRect rect = self.tbHead.frame;
+        rect.origin.y = y;
+        self.tbHead.frame = rect;
+        [self.scrollViewTable bringSubviewToFront:self.tbHead];//置顶
+    }else{
+        CGRect rect = self.tbHead.frame;
+        rect.origin.y = 160;
+        self.tbHead.frame = rect;
+    }
+    NSLog(@"滚动条位置%f",y);
 }
 
 /*

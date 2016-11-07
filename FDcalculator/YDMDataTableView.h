@@ -15,5 +15,6 @@
 - (instancetype)initWithFrame:(CGRect)frame headerSize:(CGSize)size;
 - (void)setHeaderArray:(NSArray*)headerArray dataArray:(NSArray*)dataArray;
 - (void)reloadDataTable;
+//@property (nonatomic, strong) UIView *tableViewHeadView;
 
 @end

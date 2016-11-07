@@ -32,4 +32,8 @@
 -(void)PrincipalCalculation;
 //等额本金计算方法
 -(void)InterestCalculation;
+//数组转换成 123,456,789.12
+-(NSString*)YDMNumberFormatterCurrency:(CGFloat)number;
+//数组转换成 123,456,789 整数
+-(NSString*)YDMNumberFormatterCurrencyInt:(CGFloat)number;
 @end

@@ -26,7 +26,7 @@
 
 @property (nonatomic,strong) UIView * slideView;
 
-@property (nonatomic,strong) NSMutableArray * btnArray;
+
 
 
 @end
@@ -65,30 +65,21 @@
 - (void)confingTopView{
 
     // 按钮宽度
-    
     CGFloat buttonWight = kWindowWidth / _vcArray.count;
-    
     // 按钮高度
-    
     CGFloat buttonhight = KTopViewHight - 0;
-
-    
-    CGRect topViewFrame = CGRectMake(0, 0, kWindowWidth, KTopViewHight
-                                     );
+    CGRect topViewFrame = CGRectMake(0, 0, kWindowWidth, KTopViewHight);
     
     self.topView = [[UIView alloc]initWithFrame:topViewFrame];
-    self.topView.backgroundColor = UIColorRGBA(19, 27, 39, 1);
-   
+    self.topView.backgroundColor = UIColorRGBA(19, 27, 39, 1);//滑动背景颜色
 
     [self addSubview:self.topView];
-
     
-    //self.slideView = [[UIView alloc] initWithFrame:CGRectMake(0, KTopViewHight - 5, buttonWight, 5)];
     self.slideView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, buttonWight, KTopViewHight)];
     
     //滑动块颜色
-    //[_slideView setBackgroundColor:UIColorRGBA(239, 93, 58, 1)];
-    [_slideView setBackgroundColor:UIColorRGBA(37, 129, 233, 1)];
+    [_slideView setBackgroundColor:UIColorRGBA(50, 125, 220, 1)];
+    //[_slideView setBackgroundColor:UIColorRGBA(37, 129, 233, 1)];
     
     //添加滑动窗口
     [_topView  addSubview:self.slideView];
@@ -108,31 +99,34 @@
         label_title.textAlignment = NSTextAlignmentCenter;
         
         if (i==0) {
-            _labelBenxi = [[UILabel alloc] initWithFrame:CGRectMake(0, 51, 80, 20)];
+            _labelBenxi = [[UILabel alloc] initWithFrame:CGRectMake(10, 51, kWindowWidth/2*0.5-10, 20)];
             _labelBenxi.text =  self.vcArray[i][2];
             //[_label_money setTextColor:UIColorRGBA(184, 233, 134, 1)];//浅绿
-            [_labelBenxi setTextColor:UIColorRGBA(243, 166, 39, 1)];//橙色
+            //[_labelBenxi setTextColor:UIColorRGBA(243, 166, 39, 1)];//橙色
             _labelBenxi.font = [UIFont systemFontOfSize:20];
             _labelBenxi.textAlignment = NSTextAlignmentRight;
             [_labelBenxi setAdjustsFontSizeToFitWidth:YES];//自动适应行高
         } else {
-            _labelBenjin = [[UILabel alloc] initWithFrame:CGRectMake(0, 51, 80, 20)];
+            _labelBenjin = [[UILabel alloc] initWithFrame:CGRectMake(10, 51, kWindowWidth/2*0.5-10, 20)];
             _labelBenjin.text =  self.vcArray[i][2];
-            //[_label_money setTextColor:UIColorRGBA(184, 233, 134, 1)];//浅绿
-            [_labelBenjin setTextColor:UIColorRGBA(243, 166, 39, 1)];//橙色
+            //[_labelBenjin setTextColor:UIColorRGBA(184, 233, 134, 1)];//浅绿
+            //[_labelBenjin setTextColor:UIColorRGBA(243, 166, 39, 1)];//橙色
             _labelBenjin.font = [UIFont systemFontOfSize:20];
             _labelBenjin.textAlignment = NSTextAlignmentRight;
             [_labelBenjin setAdjustsFontSizeToFitWidth:YES];//自动适应行高
         }
         
-        UILabel *label_sign = [[UILabel alloc] initWithFrame:CGRectMake(86, 51, 80, 20)];
+        UILabel *label_sign = [[UILabel alloc] initWithFrame:CGRectMake(kWindowWidth/2*0.5, 51, kWindowWidth/2*0.5-10, 20)];
         label_sign.text = @"(元)月供";
         //[label_sign setTextColor:UIColorRGBA(102, 102, 102, 1)];//灰色
         [label_sign setTextColor:[UIColor whiteColor]];//白色
         label_sign.font = [UIFont systemFontOfSize:20];
         label_sign.textAlignment = NSTextAlignmentLeft;
+        [label_sign setAdjustsFontSizeToFitWidth:YES];
         
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, buttonWight, buttonhight)];
+        _tmpButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, buttonWight, buttonhight)];
+       // UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, buttonWight, buttonhight)];
+        UIButton *button = _tmpButton;
         
         button.tag = i;
        
@@ -146,13 +140,11 @@
         button.titleLabel.font = [UIFont systemFontOfSize:21];
         
         //默认字体颜色
-        [button setTitleColor:UIColorRGBA(52, 52, 52, 1) forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         
         if (i == 0) {
-            
             //选中字体颜色
-            [button setTitleColor:UIColorRGBA(239, 93, 58, 1) forState:UIControlStateNormal];
-
+            [button setTitleColor:UIColorRGBA(15, 53, 15, 1) forState:UIControlStateNormal];
         }
         
         [button addTarget:self action:@selector(tabButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -243,45 +235,30 @@
     frame.origin.x = scrollView.contentOffset.x/_vcArray.count;
     
     _slideView.frame = frame;
-    
-    //int pageNum = scrollView.contentOffset.x / kWindowWidth;
+
     double pagegps = scrollView.contentOffset.x / kWindowWidth;
     
     //NSLog(@"页数:%f", pagegps);
     
     for (NSMutableArray * btnItem in _btnArray){
         UIButton *btn = [btnItem objectAtIndex:0];
-        //label_title, _label_money , label_sign
-        /*
-        UILabel * label_title = [btnItem objectAtIndex:1];
-        UILabel * _label_money = [btnItem objectAtIndex:2];
-        UILabel * label_sign = [btnItem objectAtIndex:3];
-        */
-        
         if (btn.tag == pagegps ) {
             
-            [btn setTitleColor:UIColorRGBA(239, 93, 58, 1) forState:UIControlStateNormal];
-            [btnItem[1] setTextColor:UIColorRGBA(255, 255, 255, 1)];
-            [btnItem[2]  setTextColor:UIColorRGBA(239, 93, 58, 1)];
-            [btnItem[3] setTextColor:UIColorRGBA(255, 255, 255, 1)];
-            /*
-            [[btnItem objectAtIndex:1] setTextColor:UIColorRGBA(255, 255, 255, 1)];
-            [[btnItem objectAtIndex:2] setTextColor:UIColorRGBA(239, 93, 58, 1)];
-            [[btnItem objectAtIndex:3] setTextColor:UIColorRGBA(255, 255, 255, 1)];
-             */
+            //[btn setTitleColor:UIColorRGBA(15, 153, 15, 1) forState:UIControlStateNormal];
+            [btnItem[1] setTextColor:[UIColor whiteColor]];
+            [btnItem[2] setTextColor:UIColorRGBA(241, 180, 62, 1)];
+            [btnItem[3] setTextColor:[UIColor whiteColor]];
             
         }else{
         
-            [btn setTitleColor:UIColorRGBA(52, 52, 52, 1) forState:UIControlStateNormal];
-            [[btnItem objectAtIndex:1] setTextColor:UIColorRGBA(122, 143, 172, 1)];
-            [[btnItem objectAtIndex:2] setTextColor:UIColorRGBA(255, 255, 255, 1)];
-            [[btnItem objectAtIndex:3] setTextColor:UIColorRGBA(122, 143, 172, 1)];
+            //[btn setTitleColor:UIColorRGBA(15, 153, 15, 1) forState:UIControlStateNormal];
+            [[btnItem objectAtIndex:1] setTextColor:[UIColor grayColor]];
+            [[btnItem objectAtIndex:2] setTextColor:[UIColor whiteColor]];
+            [[btnItem objectAtIndex:3] setTextColor:[UIColor grayColor]];
         
         }
         
     }
-    
-    
 }
 
 -(void) tabButton: (id) sender{
@@ -294,17 +271,17 @@
 
         if ( btn == button ) {
             
-            [btn setTitleColor:UIColorRGBA(239, 93, 58, 1) forState:UIControlStateNormal];
-            [[btnItem objectAtIndex:1] setTextColor:UIColorRGBA(255, 255, 255, 1)];
-            [[btnItem objectAtIndex:2] setTextColor:UIColorRGBA(239, 93, 58, 1)];
-            [[btnItem objectAtIndex:3] setTextColor:UIColorRGBA(255, 255, 255, 1)];
+            //[btn setTitleColor:UIColorRGBA(239, 93, 58, 1) forState:UIControlStateNormal];
+            [[btnItem objectAtIndex:1] setTextColor:[UIColor whiteColor]];
+            [[btnItem objectAtIndex:2] setTextColor:UIColorRGBA(241, 180, 62, 1)];
+            [[btnItem objectAtIndex:3] setTextColor:[UIColor whiteColor]];
             
         }else{
             
-            [btn setTitleColor:UIColorRGBA(52, 52, 52, 1) forState:UIControlStateNormal];
-            [[btnItem objectAtIndex:1] setTextColor:UIColorRGBA(122, 143, 172, 1)];
-            [[btnItem objectAtIndex:2] setTextColor:UIColorRGBA(255, 255, 255, 1)];
-            [[btnItem objectAtIndex:3] setTextColor:UIColorRGBA(122, 143, 172, 1)];
+            //[btn setTitleColor:UIColorRGBA(52, 52, 52, 1) forState:UIControlStateNormal];
+            [[btnItem objectAtIndex:1] setTextColor:[UIColor grayColor]];
+            [[btnItem objectAtIndex:2] setTextColor:[UIColor whiteColor]];
+            [[btnItem objectAtIndex:3] setTextColor:[UIColor grayColor]];
             
         }
         

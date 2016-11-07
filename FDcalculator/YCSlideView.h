@@ -18,4 +18,8 @@
 
 @property (nonatomic,strong)UILabel *labelBenjin;
 
+@property (nonatomic,strong)UIButton * tmpButton;
+
+@property (nonatomic,strong) NSMutableArray * btnArray;
+
 @end

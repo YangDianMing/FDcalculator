@@ -44,7 +44,7 @@
         headLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, bgView.frame.size.width, bgView.frame.size.height)];
         [headLabel setAdjustsFontSizeToFitWidth:YES];//自动适应行高
         //headLabel.numberOfLines = 0;
-        [headLabel setTextColor:UIColorRGBA(51, 51, 51, 1)];
+        [headLabel setTextColor:[UIColor grayColor]];
         headLabel.font = [UIFont systemFontOfSize:14];//换行设置12
         [bgView addSubview:headLabel];
         [labelArray addObject:headLabel];

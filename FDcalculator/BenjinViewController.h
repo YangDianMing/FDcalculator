@@ -13,6 +13,9 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollViewTable;
 @property (weak, nonatomic) IBOutlet UIView *viewTopView;
+@property (weak, nonatomic) NSArray * headerAarray;
+
+
 
 //月还款MonthRepayment;
 @property (weak, nonatomic) IBOutlet UILabel *labelMonthRepayment;

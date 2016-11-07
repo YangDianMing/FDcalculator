@@ -94,14 +94,14 @@
         cellIdentifier = @"lastCell";
     }
     YDMDataTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    //if(cell==nil){
+    if(cell==nil){
         cell=[[YDMDataTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault
                                        reuseIdentifier:cellIdentifier
                                               itemSize:CGSizeMake(_headerWidth, _headerHeight)
                                            headerArray:_headerArray];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    //}
-    cell.dataDict=[_dataArray objectAtIndex:indexPath.row];
+    }
+    cell.dataDict=[_dataArray objectAtIndex:indexPath.row];//添加表格数据
     if (indexPath.row %2 == 1) {
         cell.backgroundColor = UIColorRGBA(240, 240, 240, 1);
     }
@@ -121,7 +121,7 @@
         headLabel.font = [UIFont systemFontOfSize:14];//头行字体
         headLabel.textColor = [UIColor whiteColor];
         [tableViewHeadView addSubview:headLabel];
-    }    
+    }
     return tableViewHeadView;
 }
 

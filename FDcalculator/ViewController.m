@@ -18,6 +18,8 @@
 
 #define kWindowHeight                       ([[UIScreen mainScreen] bounds].size.height)
 
+#define UIColorRGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
 @interface ViewController ()
 
 @property (nonatomic,strong) BenxiViewController * VCBenxi;
@@ -31,34 +33,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [self.txtJieDaiJinE addTarget:self
-                           action:@selector(textFieldDidChange)
-                 forControlEvents:UIControlEventEditingDidEnd];//监听调用UIControlEventEditingChanged
-    [self.txtDaiKuanQiXian addTarget:self
-                           action:@selector(textFieldDidChange)
-                 forControlEvents:UIControlEventEditingDidEnd];//监听调用
-    [self.txtDaiKuanLiLv addTarget:self
-                           action:@selector(textFieldDidChange)
-                 forControlEvents:UIControlEventEditingDidEnd];//监听调用
-    [self.txtLiLvZheKou addTarget:self
-                            action:@selector(textFieldDidChange)
-                  forControlEvents:UIControlEventEditingDidEnd];//监听调用
+    
+    //监听事件
+    [self UIControlEvent];
     
     UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self.VCBenxi = [mainStoryboard instantiateViewControllerWithIdentifier:@"SyBenxi"];
     self.VCBenjin = [mainStoryboard instantiateViewControllerWithIdentifier:@"SyBenjin"];
     
-    /*
-    CGSize tmpSize = CGSizeMake(kWindowWidth, kWindowHeight-375);
-    CGRect rect;
-    rect.size = tmpSize;
-    self.VCBenjin.view.frame = rect;
-    */
     NSArray *viewControllers = @[@[@"等额本息",_VCBenxi,@"1305"],@[@"等额本金",_VCBenjin,@"1645"]];
     self.Slideview = [[YCSlideView alloc]initWithFrame:CGRectMake(0, 250, kWindowWidth, kWindowHeight) WithViewControllers:viewControllers];
     
+    //滑块点击事件
+    for (NSMutableArray * btnItem  in self.Slideview.btnArray) {
+        UIButton * btn = [btnItem objectAtIndex:0];
+        [btn addTarget:self
+                action:@selector(HidenKeyBoard)
+      forControlEvents:UIControlEventTouchDown];
+    }
+    
     [self.view addSubview:self.Slideview];
-    [self textFieldDidChange];
+    [self jisuan];
 }
 
 
@@ -67,9 +62,99 @@
     // Dispose of any resources that can be recreated.
 }
 
+//监听事件
+-(void)UIControlEvent{
+    //输入改变时验证
+    [self.txtJieDaiJinE addTarget:self
+                           action:@selector(textFieldChanged)
+                 forControlEvents:UIControlEventEditingChanged];//监听调用UIControlEventEditingChanged
+    [self.txtDaiKuanQiXian addTarget:self
+                              action:@selector(textFieldChanged)
+                    forControlEvents:UIControlEventEditingChanged];//监听调用UIControlEventEditingDidEnd
+    [self.txtDaiKuanLiLv addTarget:self
+                            action:@selector(textFieldChanged)
+                  forControlEvents:UIControlEventEditingChanged];//监听调用
+    [self.txtLiLvZheKou addTarget:self
+                           action:@selector(textFieldChanged)
+                 forControlEvents:UIControlEventEditingChanged];//监听调用
+    
+    [self.txtJieDaiJinE addTarget:self
+                           action:@selector(textFieldDidEnd)
+                 forControlEvents:UIControlEventEditingDidEnd];//监听调用UIControlEventEditingChanged
+    [self.txtDaiKuanQiXian addTarget:self
+                              action:@selector(textFieldDidEnd)
+                    forControlEvents:UIControlEventEditingDidEnd];//监听调用UIControlEventEditingDidEnd
+    [self.txtDaiKuanLiLv addTarget:self
+                            action:@selector(textFieldDidEnd)
+                  forControlEvents:UIControlEventEditingDidEnd];//监听调用
+    [self.txtLiLvZheKou addTarget:self
+                           action:@selector(textFieldDidEnd)
+                 forControlEvents:UIControlEventEditingDidEnd];//监听调用
+    
+    //设置键盘右上角计算按钮
+    //UIToolbar *bar = [[UIToolbar alloc] initWithFrame:CGRectMake(0,0, kWindowWidth,44)];
+    //UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(kWindowWidth - 60, 7,50, 30)];
+    UIToolbar *bar = [[UIToolbar alloc] initWithFrame:CGRectMake(0,0, kWindowWidth,44)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(kWindowWidth - 70,7,60, 30)];
+    [button addTarget:self action:@selector(jisuan) forControlEvents:UIControlEventTouchDown];
+    [button setTitle:@"计算" forState:UIControlStateNormal];
+    //[button size];
+    [button setTitleColor: UIColorRGBA(0, 136, 204, 1) forState:UIControlStateNormal];
+    button.layer.borderWidth = 1;
+    //button.backgroundColor = [UIColor whiteColor];
+    button.layer.borderColor = UIColorRGBA(0, 136, 204, 1).CGColor;
+    button.layer.cornerRadius = 5;
+    [bar addSubview:button];
+    self.txtJieDaiJinE.inputAccessoryView = bar;
+    self.txtDaiKuanLiLv.inputAccessoryView = bar;
+    self.txtDaiKuanQiXian.inputAccessoryView = bar;
+    self.txtLiLvZheKou.inputAccessoryView = bar;
+}
+
 //编写监听函数
--(void)textFieldDidChange{
+-(void)textFieldChanged{
     NSString *txtJieDaiJinE = self.txtJieDaiJinE.text;
+    NSString *txtDaiKuanLiLv = self.txtDaiKuanLiLv.text;
+    NSString *txtDaiKuanQiXian = self.txtDaiKuanQiXian.text;
+    NSString *txtLiLvZheKou = self.txtLiLvZheKou.text;
+    
+    if ([txtJieDaiJinE floatValue] > 9999) {
+        self.txtJieDaiJinE.text = @"9999";
+        NSLog(@"贷款金额小于9999万");
+    }
+    else if ([txtDaiKuanLiLv floatValue] > 99) {
+        self.txtDaiKuanLiLv.text = @"99";
+        NSLog(@"贷款利率需要小于99之间");
+    }
+    else if ([txtDaiKuanQiXian floatValue] > 30 ){
+        self.txtDaiKuanQiXian.text = @"30";
+        NSLog(@"贷款期限需要小于30之间");
+    }
+    else if ([txtLiLvZheKou floatValue] > 2) {
+        self.txtLiLvZheKou.text = @"2";
+        NSLog(@"利率倍率需要在小于2之间");
+    }
+    else if ([txtJieDaiJinE length] > 4) {
+        NSString * string = self.txtJieDaiJinE.text;
+        self.txtJieDaiJinE.text = [string substringToIndex:4];
+    }
+    else if ([txtDaiKuanLiLv length] > 7) {
+        NSString * string = self.txtDaiKuanLiLv.text;
+        self.txtDaiKuanLiLv.text = [string substringToIndex:7];
+    }
+    else if ([txtDaiKuanQiXian length] > 2) {
+        NSString * string = self.txtDaiKuanQiXian.text;
+        self.txtDaiKuanQiXian.text = [string substringToIndex:2];
+    }
+    else if ([txtLiLvZheKou length] > 7) {
+        NSString * string = self.txtLiLvZheKou.text;
+        self.txtLiLvZheKou.text = [string substringToIndex:7];
+    }
+}
+
+//编写监听函数
+-(void)textFieldDidEnd{
+    //NSString *txtJieDaiJinE = self.txtJieDaiJinE.text;
     NSString *txtDaiKuanLiLv = self.txtDaiKuanLiLv.text;
     NSString *txtDaiKuanQiXian = self.txtDaiKuanQiXian.text;
     NSString *txtLiLvZheKou = self.txtLiLvZheKou.text;
@@ -99,22 +184,20 @@
         self.txtLiLvZheKou.text = @"1";
         NSLog(@"利率倍率需要大于0");
     }
-    else if ([txtDaiKuanLiLv floatValue] > 99) {
-        self.txtDaiKuanLiLv.text = @"99";
-        NSLog(@"贷款利率需要小于99之间");
-    }
-    else if ([txtDaiKuanQiXian floatValue] > 30 ){
-        self.txtDaiKuanQiXian.text = @"30";
-        NSLog(@"贷款期限需要小于30之间");
-    }
-    else if ([txtLiLvZheKou floatValue] > 2) {
-        self.txtLiLvZheKou.text = @"2";
-        NSLog(@"利率倍率需要在小于2之间");
-    }
     
+}
+//计算
+-(void)jisuan{
+    [self HidenKeyBoard];
     [self benxifuzhi];
     [self benjinfuzhi];
-    
+}
+//滑块隐藏键盘
+-(void)HidenKeyBoard{
+    [self.txtJieDaiJinE resignFirstResponder];
+    [self.txtDaiKuanLiLv resignFirstResponder];
+    [self.txtDaiKuanQiXian resignFirstResponder];
+    [self.txtLiLvZheKou resignFirstResponder];
 }
 //隐藏键盘
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -122,6 +205,7 @@
     [self.txtDaiKuanLiLv resignFirstResponder];
     [self.txtDaiKuanQiXian resignFirstResponder];
     [self.txtLiLvZheKou resignFirstResponder];
+    //[self jisuan];
 }
 
 //本息赋值
@@ -135,15 +219,25 @@
     mc.LoanTerm = txtDaiKuanQiXian * 12;
     mc.LoanRatesYers = txtDaiKuanLiLv * 0.01 * txtLiLvZheKou;
     [mc InterestCalculation];
-    //label_money
-    _Slideview.labelBenxi.text = [NSString stringWithFormat:@"%.2f",mc.MonthRepayment];
+    
+    //格式化输出数字
+    /*
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.numberStyle = NSNumberFormatterCurrencyStyle;
+    _Slideview.labelBenxi.text = [formatter stringFromNumber:[NSNumber numberWithInt:mc.MonthRepayment]];
+    _VCBenxi.labelMonthRepayment.text = [formatter stringFromNumber:[NSNumber numberWithInt:mc.MonthRepayment]];
+    _VCBenxi.labelTotalRepayment.text = [formatter stringFromNumber:[NSNumber numberWithInt:mc.TotalRepayment]];
+    _VCBenxi.labelTotalInterest.text = [formatter stringFromNumber:[NSNumber numberWithInt:mc.TotalInterest]];
+    */
+    //滑动块
+    _Slideview.labelBenxi.text = [mc YDMNumberFormatterCurrencyInt:mc.MonthRepayment];
     //月还款
-    _VCBenxi.labelMonthRepayment.text = [NSString stringWithFormat:@"%.2f",mc.MonthRepayment];
+    _VCBenxi.labelMonthRepayment.text = [mc YDMNumberFormatterCurrency:mc.MonthRepayment];
     //总还款
-    _VCBenxi.labelTotalRepayment.text = [NSString stringWithFormat:@"%.2f",mc.TotalRepayment];
+    _VCBenxi.labelTotalRepayment.text = [mc YDMNumberFormatterCurrency:mc.TotalRepayment];
     //总利息
-    _VCBenxi.labelTotalInterest.text = [NSString stringWithFormat:@"%.2f",mc.TotalInterest];
-
+    _VCBenxi.labelTotalInterest.text = [mc YDMNumberFormatterCurrency:mc.TotalInterest];
+    
 }
 //本金赋值
 -(void)benjinfuzhi{
@@ -158,18 +252,21 @@
     [mc PrincipalCalculation];
 
     //label_money
-    _Slideview.labelBenjin.text = [NSString stringWithFormat:@"%.2f",mc.MonthRepayment];
+    _Slideview.labelBenjin.text = [mc YDMNumberFormatterCurrencyInt:mc.MonthRepayment];
     //月还款
-    _VCBenjin.labelMonthRepayment.text = [NSString stringWithFormat:@"%.2f",mc.MonthRepayment];
+    _VCBenjin.labelMonthRepayment.text = [mc YDMNumberFormatterCurrency:mc.MonthRepayment];
     //总还款
-    _VCBenjin.labelTotalRepayment.text = [NSString stringWithFormat:@"%.2f",mc.TotalRepayment];
+    _VCBenjin.labelTotalRepayment.text = [mc YDMNumberFormatterCurrency:mc.TotalRepayment];
     //总利息
-    _VCBenjin.labelTotalInterest.text = [NSString stringWithFormat:@"%.2f",mc.TotalInterest];
+    _VCBenjin.labelTotalInterest.text = [mc YDMNumberFormatterCurrency:mc.TotalInterest];
     //逐月递减
-    _VCBenjin.labelMonthlyDecline.text = [NSString stringWithFormat:@"%.2f",mc.MonthlyDecline];    
+    _VCBenjin.labelMonthlyDecline.text = [mc YDMNumberFormatterCurrency:mc.MonthlyDecline];
     
     _VCBenjin.mc = mc;
     [_VCBenjin benjinload];
+    
+    
+
 
 }
 @end

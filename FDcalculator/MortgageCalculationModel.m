@@ -112,5 +112,51 @@
     _MonthlyDecline -= shengbenjin * _LoanRatesMonth;
     //NSLog(@"等额本息数组:%@",_principalArray);
 }
+//数组转换成 123,456,789.12
+-(NSString*)YDMNumberFormatterCurrency:(CGFloat)number{
+    NSString * string = [NSString stringWithFormat:@"%.2f",number];
+    NSArray *array = [string componentsSeparatedByString:@"."];
+    NSMutableString *outString = [[NSMutableString alloc] init];
+    NSString *str = array[0];
+    NSInteger length = str.length;
+    int n = 1;
+    while (length>0) {
+        NSString *tmpStr = array[0];
+        NSRange rang = {length-1, 1};
+        NSString *subStr = [tmpStr substringWithRange:rang];
+        [outString insertString:subStr atIndex:0];
+        if (n%3 == 0 && n != str.length) {
+            [outString insertString:@"," atIndex:0];
+        }
+        n++;
+        length--;
+    }
+    [outString appendString:@"."];
+    for (int i = 1; i<array.count; i++) {
+        [outString appendString:array[i]];
+    }
+    return outString;
+}
+//数组转换成 123,456,789 整数
+-(NSString*)YDMNumberFormatterCurrencyInt:(CGFloat)number{
+    NSString * string = [NSString stringWithFormat:@"%.f",number];
+    NSArray *array = [string componentsSeparatedByString:@"."];
+    NSMutableString *outString = [[NSMutableString alloc] init];
+    NSString *str = array[0];
+    NSInteger length = str.length;
+    int n = 1;
+    while (length>0) {
+        NSString *tmpStr = array[0];
+        NSRange rang = {length-1, 1};
+        NSString *subStr = [tmpStr substringWithRange:rang];
+        [outString insertString:subStr atIndex:0];
+        if (n%3 == 0 && n != str.length) {
+            [outString insertString:@"," atIndex:0];
+        }
+        n++;
+        length--;
+    }
+    return outString;
+}
 
 @end
