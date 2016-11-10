@@ -16,7 +16,8 @@
 @property (weak, nonatomic) NSArray * headerAarray;
 
 
-
+//浮动头部信息
+@property (nonatomic, strong) UIView * tbHead;
 //月还款MonthRepayment;
 @property (weak, nonatomic) IBOutlet UILabel *labelMonthRepayment;
 

@@ -13,6 +13,7 @@
 #import "BenjinViewController.h"
 #import "MortgageCalculationModel.h"
 #import "SJDataTableView.h"
+#import "myScrollView.h"
 
 #define kWindowWidth                        ([[UIScreen mainScreen] bounds].size.width)
 
@@ -25,6 +26,7 @@
 @property (nonatomic,strong) BenxiViewController * VCBenxi;
 @property (nonatomic,strong) BenjinViewController * VCBenjin;
 @property (nonatomic,strong) YCSlideView * Slideview;
+@property (nonatomic,strong) UIButton * buttonFanhuidingbu;
 
 @end
 
@@ -41,8 +43,8 @@
     self.VCBenxi = [mainStoryboard instantiateViewControllerWithIdentifier:@"SyBenxi"];
     self.VCBenjin = [mainStoryboard instantiateViewControllerWithIdentifier:@"SyBenjin"];
     
-    NSArray *viewControllers = @[@[@"等额本息",_VCBenxi,@"1305"],@[@"等额本金",_VCBenjin,@"1645"]];
-    self.Slideview = [[YCSlideView alloc]initWithFrame:CGRectMake(0, 250, kWindowWidth, kWindowHeight) WithViewControllers:viewControllers];
+    NSArray *viewControllers = @[@[@"等额本息",_VCBenxi,@"0"],@[@"等额本金",_VCBenjin,@"0"]];
+    self.Slideview = [[YCSlideView alloc]initWithFrame:CGRectMake(0, 186, kWindowWidth, kWindowHeight) WithViewControllers:viewControllers];
     
     //滑块点击事件
     for (NSMutableArray * btnItem  in self.Slideview.btnArray) {
@@ -52,7 +54,19 @@
       forControlEvents:UIControlEventTouchDown];
     }
     
-    [self.view addSubview:self.Slideview];
+    self.VCBenjin.scrollViewTable.delegate = self;
+    self.mainScrollView.delegate = self;
+    self.mainScrollView.showsVerticalScrollIndicator = NO;//屏蔽纵向滚动条
+    self.mainScrollView.bounces = NO;//反弹
+    self.mainScrollView.alwaysBounceVertical = NO;//总是反弹垂直
+    self.mainScrollView.pagingEnabled = YES;
+    [self.mainScrollView addSubview:self.Slideview];
+    self.mainScrollView.frame = CGRectMake(0, 64, kWindowWidth, kWindowHeight-64);
+    NSLog(@"1内滚动视图--高度:%f--宽度:%f",self.mainScrollView.contentSize.height,self.mainScrollView.contentSize.width);
+    self.mainScrollView.contentSize = CGSizeMake(kWindowWidth, kWindowHeight+186-64);
+    NSLog(@"2内滚动视图--高度:%f--宽度:%f",self.mainScrollView.contentSize.height,self.mainScrollView.contentSize.width);
+    NSLog(@"3内滚动视图--高度:%f--宽度:%f",self.mainScrollView.frame.size.height,self.mainScrollView.frame.size.width);
+    //[self.mainScrollView setContentSize:CGPointMake(0, 186)];
     [self jisuan];
 }
 
@@ -91,24 +105,79 @@
                            action:@selector(textFieldDidEnd)
                  forControlEvents:UIControlEventEditingDidEnd];//监听调用
     
+    //返回顶部按钮
+    self.buttonFanhuidingbu = [[UIButton alloc] initWithFrame:CGRectMake(kWindowWidth - 50,kWindowHeight - 50, 40, 40)];
+    [self.buttonFanhuidingbu setImage:[UIImage imageNamed:@"fanhuidingbu"] forState:UIControlStateNormal];
+    [self.view addSubview:self.buttonFanhuidingbu];
+    [self.buttonFanhuidingbu addTarget:self action:@selector(Fanhuidingbu) forControlEvents:UIControlEventTouchDown];
+    self.buttonFanhuidingbu.hidden = YES;
+    
     //设置键盘右上角计算按钮
-    //UIToolbar *bar = [[UIToolbar alloc] initWithFrame:CGRectMake(0,0, kWindowWidth,44)];
-    //UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(kWindowWidth - 60, 7,50, 30)];
     UIToolbar *bar = [[UIToolbar alloc] initWithFrame:CGRectMake(0,0, kWindowWidth,44)];
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(kWindowWidth - 70,7,60, 30)];
-    [button addTarget:self action:@selector(jisuan) forControlEvents:UIControlEventTouchDown];
-    [button setTitle:@"计算" forState:UIControlStateNormal];
-    //[button size];
-    [button setTitleColor: UIColorRGBA(0, 136, 204, 1) forState:UIControlStateNormal];
-    button.layer.borderWidth = 1;
-    //button.backgroundColor = [UIColor whiteColor];
-    button.layer.borderColor = UIColorRGBA(0, 136, 204, 1).CGColor;
-    button.layer.cornerRadius = 5;
-    [bar addSubview:button];
+    UIButton *buttonJisuan = [[UIButton alloc] initWithFrame:CGRectMake(kWindowWidth - 140,7,60, 30)];
+    UIButton *buttonWancheng = [[UIButton alloc] initWithFrame:CGRectMake(kWindowWidth - 70,7,60, 30)];
+    [buttonJisuan addTarget:self action:@selector(jisuan) forControlEvents:UIControlEventTouchDown];
+    [buttonWancheng addTarget:self action:@selector(HidenKeyBoard) forControlEvents:UIControlEventTouchDown];
+    [buttonJisuan setTitle:@"计算" forState:UIControlStateNormal];
+    [buttonWancheng setTitle:@"完成" forState:UIControlStateNormal];
+
+    [buttonJisuan setTitleColor: UIColorRGBA(0, 136, 204, 1) forState:UIControlStateNormal];
+    [buttonWancheng setTitleColor: UIColorRGBA(0, 136, 204, 1) forState:UIControlStateNormal];
+    buttonJisuan.layer.borderWidth = 1;
+    //buttonJisuan.backgroundColor = [UIColor whiteColor];
+    buttonJisuan.layer.borderColor = UIColorRGBA(0, 136, 204, 1).CGColor;
+    buttonJisuan.layer.cornerRadius = 5;
+    [bar addSubview:buttonJisuan];
+    [bar addSubview:buttonWancheng];
     self.txtJieDaiJinE.inputAccessoryView = bar;
     self.txtDaiKuanLiLv.inputAccessoryView = bar;
     self.txtDaiKuanQiXian.inputAccessoryView = bar;
     self.txtLiLvZheKou.inputAccessoryView = bar;
+}
+
+//滚动事件
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    //[self HidenKeyBoard];
+    //CGFloat y = scrollView.contentOffset.y;
+    //CGFloat mainScrollView_y = self.mainScrollView.contentOffset.y;
+    CGFloat vcBenjin_y = self.VCBenjin.scrollViewTable.contentOffset.y;
+    CGFloat active_y = vcBenjin_y - 160;
+    CGPoint point = self.mainScrollView.contentOffset;
+    
+    if (vcBenjin_y > 160) {
+        
+        if (active_y < 186) {
+            point.y = active_y;
+            self.mainScrollView.contentOffset = point;
+        }else{
+            point.y = 186;
+            self.mainScrollView.contentOffset = point;
+        }
+        
+        //头部标题跟随
+        CGRect rect = self.VCBenjin.tbHead.frame;
+        rect.origin.y = vcBenjin_y;
+        self.VCBenjin.tbHead.frame = rect;
+        [self.VCBenjin.scrollViewTable bringSubviewToFront:self.VCBenjin.tbHead];//置顶
+        
+        //返回顶部
+        self.buttonFanhuidingbu.hidden = NO;
+    }else{
+        //CGPoint point = self.mainScrollView.contentOffset;
+        point.y = 0;
+        self.mainScrollView.contentOffset = point;
+        
+        //头部标题复位
+        CGRect rect = self.VCBenjin.tbHead.frame;
+        rect.origin.y = 160;
+        self.VCBenjin.tbHead.frame = rect;
+        
+        //返回顶部
+        self.buttonFanhuidingbu.hidden = YES;
+        
+    }
+   
+    NSLog(@"滚动条位置%f",vcBenjin_y);
 }
 
 //编写监听函数
@@ -199,14 +268,19 @@
     [self.txtDaiKuanQiXian resignFirstResponder];
     [self.txtLiLvZheKou resignFirstResponder];
 }
+//返回顶部
+-(void)Fanhuidingbu{
+    [self.VCBenjin.scrollViewTable setContentOffset:CGPointMake(0, 0) animated:YES];
+}
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self HidenKeyBoard];
+}
+
 //隐藏键盘
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self.txtJieDaiJinE resignFirstResponder];
-    [self.txtDaiKuanLiLv resignFirstResponder];
-    [self.txtDaiKuanQiXian resignFirstResponder];
-    [self.txtLiLvZheKou resignFirstResponder];
-    //[self jisuan];
+    [self HidenKeyBoard];
 }
+
 
 //本息赋值
 -(void)benxifuzhi{
@@ -268,5 +342,30 @@
     
 
 
+}
+
+
+//点击切换
+- (IBAction)segmentClick:(id)sender {
+    UISegmentedControl* control = (UISegmentedControl*)sender;
+    //UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    //self.VCBenxi = [mainStoryboard instantiateViewControllerWithIdentifier:@"SyBenxi"];
+    UIStoryboard *board = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *SyView = [board instantiateViewControllerWithIdentifier:@"SyView"];
+    UIViewController *GjjView = [board instantiateViewControllerWithIdentifier:@"GjjView"];
+    
+    switch (control.selectedSegmentIndex) {
+        case 0:
+            NSLog(@"0");
+            self.view = SyView.view;
+            break;
+        case 1:
+            NSLog(@"1");
+            self.view = GjjView.view;
+            break;
+        default:
+            NSLog(@"2");
+            break;
+    }
 }
 @end

@@ -21,7 +21,7 @@
 
 @interface BenjinViewController ()<UIScrollViewDelegate,UITextFieldDelegate>
 
-@property (nonatomic, strong) UIView * tbHead;
+
 
 @end
 
@@ -105,7 +105,7 @@
     
     //self.scrollViewTable.frame.size.height;约等于下面
     CGRect scrollViewTableRect = self.scrollViewTable.frame;
-    scrollViewTableRect.size.height = kWindowHeight - 350;
+    scrollViewTableRect.size.height = kWindowHeight-164;
     scrollViewTableRect.size.width = kWindowWidth;
     self.scrollViewTable.frame = scrollViewTableRect;
     

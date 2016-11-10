@@ -191,7 +191,7 @@
 - (void)configBottomView{
 
     
-    CGRect  bottomScrollViewFrame = CGRectMake(0, KTopViewHight, kWindowWidth, kWindowHeight-350  );//- KTopViewHight
+    CGRect  bottomScrollViewFrame = CGRectMake(0, KTopViewHight, kWindowWidth, kWindowHeight-100  );//- KTopViewHightkWindowHeight-350
     
     self.bottomScrollView = [[UIScrollView alloc]initWithFrame:bottomScrollViewFrame];
     
