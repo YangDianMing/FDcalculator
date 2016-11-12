@@ -158,5 +158,23 @@
     }
     return outString;
 }
-
+//合并数组对应健相加
+-(NSMutableArray *)YDMDuiyingHbingArray:(NSMutableArray *)array1 array:(NSMutableArray *)array2{
+    NSMutableArray * reArray = [[NSMutableArray alloc] init];
+    [reArray addObject:array1[0]];
+    for (int i=1; i<array1.count; i++) {
+        NSMutableArray * linshiArray = [NSMutableArray new];
+        for (int j=0; j<5; j++) {
+            CGFloat value;
+            if(j == 0){
+                value = [array1[i][j] floatValue];
+            }else{
+                value = [array1[i][j] floatValue] + [array2[i][j] floatValue];
+            }
+            [linshiArray addObject:[NSString stringWithFormat:@"%f",value]];
+        }
+        [reArray addObject:linshiArray];
+    }
+    return reArray;
+}
 @end

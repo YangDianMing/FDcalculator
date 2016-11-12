@@ -108,4 +108,5 @@
     NSString *str4 = [NSString stringWithFormat:@"%.2f",mc.MonthlyDecline];
     XCTAssertEqualObjects(str4,@"3.40",@"逐月递减-期望值3.40，实际值%f",mc.MonthlyDecline);
 }
+
 @end

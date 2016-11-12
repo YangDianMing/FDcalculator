@@ -15,8 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtDaiKuanQiXian;
 @property (weak, nonatomic) IBOutlet UITextField *txtLiLvZheKou;
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
-- (IBAction)segmentClick:(id)sender;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
+
 
 @end
 

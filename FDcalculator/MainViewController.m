@@ -10,6 +10,10 @@
 
 @interface MainViewController ()
 
+@property (nonatomic,strong) UIViewController *SyView;
+@property (nonatomic,strong) UIViewController *GjjView;
+@property (nonatomic,strong) UIViewController *HhView;
+
 @end
 
 @implementation MainViewController
@@ -17,7 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    UIStoryboard *board = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    _SyView = [board instantiateViewControllerWithIdentifier:@"SyView"];
+    _GjjView = [board instantiateViewControllerWithIdentifier:@"GjjView"];
+    _HhView = [board instantiateViewControllerWithIdentifier:@"HhView"];
+    //[self.mainView addSubview:_HhView.view];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,26 +36,18 @@
 //点击切换
 - (IBAction)segmentClick:(id)sender {
     UISegmentedControl* control = (UISegmentedControl*)sender;
-    
-    UIStoryboard *board = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *SyView = [board instantiateViewControllerWithIdentifier:@"SyView"];
-    UIViewController *GjjView = [board instantiateViewControllerWithIdentifier:@"GjjView"];
-    
     switch (control.selectedSegmentIndex) {
         case 0:
             NSLog(@"0");
-            //OneViewController  *oneView = [[[OneViewController alloc] init] autorelease];
-            
-            [self.mainView addSubview:SyView.view];
-            
-            //[self.view removeFromSuperview];
+            [self.mainView addSubview:_SyView.view];
             break;
         case 1:
             NSLog(@"1");
-            [self.mainView addSubview:GjjView.view];
+            [self.mainView addSubview:_GjjView.view];
             break;
         default:
             NSLog(@"2");
+            [self.mainView addSubview:_HhView.view];
             break;
     }
 }

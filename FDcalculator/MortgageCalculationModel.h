@@ -36,4 +36,6 @@
 -(NSString*)YDMNumberFormatterCurrency:(CGFloat)number;
 //数组转换成 123,456,789 整数
 -(NSString*)YDMNumberFormatterCurrencyInt:(CGFloat)number;
+//合并数组对应健相加
+-(NSMutableArray*)YDMDuiyingHbingArray:(NSMutableArray*)array1 array:(NSMutableArray*)array2;
 @end

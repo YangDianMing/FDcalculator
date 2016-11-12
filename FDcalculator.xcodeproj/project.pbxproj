@@ -17,6 +17,7 @@
 		3E7D52A11DB897A000F24173 /* SJDataFixItemTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7D529D1DB897A000F24173 /* SJDataFixItemTableView.m */; };
 		3E7D52A21DB897A000F24173 /* SJDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7D529F1DB897A000F24173 /* SJDataTableViewCell.m */; };
 		3E9892FF1DD4648100B1485E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9892FE1DD4648100B1485E /* MainViewController.m */; };
+		3E9893021DD5637F00B1485E /* HunheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9893011DD5637F00B1485E /* HunheViewController.m */; };
 		3E9C818F1DBDBC610054D6CF /* MortgageCalculationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9C818E1DBDBC610054D6CF /* MortgageCalculationModel.m */; };
 		3E9C81911DBDEDC90054D6CF /* MortgageCalculationModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9C81901DBDEDC90054D6CF /* MortgageCalculationModelTests.m */; };
 		3EAD956E1DA89EC700166685 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD956D1DA89EC700166685 /* main.m */; };
@@ -68,6 +69,8 @@
 		3E7D529F1DB897A000F24173 /* SJDataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJDataTableViewCell.m; sourceTree = "<group>"; };
 		3E9892FD1DD4648100B1485E /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		3E9892FE1DD4648100B1485E /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		3E9893001DD5637F00B1485E /* HunheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HunheViewController.h; sourceTree = "<group>"; };
+		3E9893011DD5637F00B1485E /* HunheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HunheViewController.m; sourceTree = "<group>"; };
 		3E9C818D1DBDBC610054D6CF /* MortgageCalculationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MortgageCalculationModel.h; sourceTree = "<group>"; };
 		3E9C818E1DBDBC610054D6CF /* MortgageCalculationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MortgageCalculationModel.m; sourceTree = "<group>"; };
 		3E9C81901DBDEDC90054D6CF /* MortgageCalculationModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MortgageCalculationModelTests.m; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 				3E9892FE1DD4648100B1485E /* MainViewController.m */,
 				3EAD95721DA89EC700166685 /* ViewController.h */,
 				3EAD95731DA89EC700166685 /* ViewController.m */,
+				3E9893001DD5637F00B1485E /* HunheViewController.h */,
+				3E9893011DD5637F00B1485E /* HunheViewController.m */,
 				3E31A36D1DB5264F00803CAE /* BenxiViewController.h */,
 				3E31A36E1DB5264F00803CAE /* BenxiViewController.m */,
 				3E31A36F1DB5264F00803CAE /* BenjinViewController.h */,
@@ -382,6 +387,7 @@
 				3E31A3721DB5264F00803CAE /* BenjinViewController.m in Sources */,
 				3E20C8DA1DC74CC3001D5B17 /* YDMDataTableView.m in Sources */,
 				3E9C818F1DBDBC610054D6CF /* MortgageCalculationModel.m in Sources */,
+				3E9893021DD5637F00B1485E /* HunheViewController.m in Sources */,
 				3EAD95741DA89EC700166685 /* ViewController.m in Sources */,
 				3E31A3711DB5264F00803CAE /* BenxiViewController.m in Sources */,
 				3EAD957A1DA89EC700166685 /* FDcalculator.xcdatamodeld in Sources */,
