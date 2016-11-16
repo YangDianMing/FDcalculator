@@ -62,7 +62,8 @@
     self.mainScrollView.pagingEnabled = YES;
     [self.mainScrollView addSubview:self.Slideview];
     self.mainScrollView.frame = CGRectMake(0, 64, kWindowWidth, kWindowHeight-64);
-    NSLog(@"1内滚动视图--高度:%f--宽度:%f",self.mainScrollView.contentSize.height,self.mainScrollView.contentSize.width);
+    
+    NSLog(@"frame视图--高度:%f--宽度:%f",self.mainScrollView.frame.size.height,self.mainScrollView.frame.size.width);
     self.mainScrollView.contentSize = CGSizeMake(kWindowWidth, kWindowHeight+186-64);
     NSLog(@"2内滚动视图--高度:%f--宽度:%f",self.mainScrollView.contentSize.height,self.mainScrollView.contentSize.width);
     NSLog(@"3内滚动视图--高度:%f--宽度:%f",self.mainScrollView.frame.size.height,self.mainScrollView.frame.size.width);

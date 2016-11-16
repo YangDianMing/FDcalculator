@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtDaiKuanQiXian;
 @property (weak, nonatomic) IBOutlet UITextField *txtLiLvZheKou;
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
+@property (weak, nonatomic) IBOutlet UIView *topView;
 
 
 @end

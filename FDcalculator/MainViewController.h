@@ -10,7 +10,14 @@
 
 @interface MainViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *mainSegmented;
+
 @property (weak, nonatomic) IBOutlet UIView *mainView;
 - (IBAction)segmentClick:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
+
+@property (nonatomic,strong)NSArray * vcArray;
+
 
 @end
